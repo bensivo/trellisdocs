@@ -5,6 +5,7 @@ from typing import Any, Optional
 import asyncpg
 from fastapi import FastAPI
 from fastapi.routing import APIRouter
+from routers.routes import router as api_router
 
 
 @asynccontextmanager
@@ -23,8 +24,8 @@ async def lifespan(app: FastAPI):
         if pool:
             await pool.close()
 
-
 app = FastAPI(lifespan=lifespan)
+app.include_router(api_router, prefix="/api")
 
 
 @app.get("/health")
@@ -39,13 +40,8 @@ async def health_check() -> dict[str, Any]:
         async with pool.acquire() as conn:
             val = await conn.fetchval("SELECT 1")
         return {"status": "ok", "db": "up", "result": int(val)}
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"status": "degraded", "db": "error", "error": str(exc)}
-
-
-from routes import router as api_router
-
-app.include_router(api_router, prefix="/api")
 
 
 if __name__ == "__main__":
