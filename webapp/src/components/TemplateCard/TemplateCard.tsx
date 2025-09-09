@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./TemplateCard.less";
 
 type Card = {
@@ -7,6 +8,8 @@ type Card = {
 };
 
 export function TemplateCard() {
+	const navigate = useNavigate();
+
 	const cards: Card[] = [
 		{
 			id: 1,
@@ -55,7 +58,7 @@ export function TemplateCard() {
 			</div>
 			{/* should this be a component?? */}
 			<div className="button-container">
-				<button>+ New Template</button>
+				<button onClick={() => navigate("/template/new")}>+ New Template</button>
 			</div>
 		</div>
 	);
