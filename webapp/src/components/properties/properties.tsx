@@ -1,10 +1,10 @@
-import "./content.less";
+import "./properties.less";
 
-export function Content() {
+export function Properties() {
 	return (
-		<div className="content-container">
-			<div className="content-box">
-				<h3>Content</h3>
+		<div className="properties-container">
+			<div className="properties-box">
+				<h3>Properties</h3>
 				<div className="field-container">
 					<p>Field Name</p>
 					<input type="text" placeholder="Value" />

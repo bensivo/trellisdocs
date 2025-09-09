@@ -1,5 +1,6 @@
-import Content from "../../components/content/content";
 import { NavbarComponent } from "../../components/navbar/navbar";
+import { Content } from "../../components/content/content";
+import { Properties } from "../../components/properties/properties";
 import "./template-editor-page.less";
 
 export function TemplateEditorPage() {
@@ -10,6 +11,7 @@ export function TemplateEditorPage() {
 				<h3>Templates {">"} Jira Epic</h3>
 			</div>
 			<Content />
+			<Properties />
 		</div>
 	);
 }
