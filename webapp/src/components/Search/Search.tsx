@@ -1,6 +1,6 @@
-import "./Search.less";
+import "./search.less";
 
-export function Search() {
+export function SearchComponent() {
 	return (
 		<div className="search-container">
 			<div className="search-box">
