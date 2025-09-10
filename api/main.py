@@ -1,14 +1,10 @@
-from contextlib import asynccontextmanager
-from typing import Any, Optional
 from fastapi import FastAPI
-from fastapi.routing import APIRouter
 from routers.routes import router as api_router
 from internal.db import lifespan
 
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(api_router, prefix="/api")
-
 
 
 if __name__ == "__main__":
