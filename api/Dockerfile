@@ -1,4 +1,3 @@
-# Use uv with Python 3.12 (bookworm). Other tags are available if you need 3.11, etc.
 FROM ghcr.io/astral-sh/uv:python3.13-bookworm
 
 WORKDIR /api
