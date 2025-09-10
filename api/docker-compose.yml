@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   db:
     image: postgres:16
@@ -17,6 +18,31 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+      start_period: 10s
+
+  api:
+    build: .
+    container_name: trellis-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+    command: >
+      uv run uvicorn main:app
+      --host 0.0.0.0
+      --port 8000
+      --proxy-headers
+      --reload
+    healthcheck:
+      test:
+        ["CMD-SHELL", "curl -fsSL http://localhost:8000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
       start_period: 10s
 
 volumes:
