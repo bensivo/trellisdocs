@@ -1,3 +1,4 @@
+import { ButtonComponent } from "../../components/button/button";
 import { CardCollectionComponent } from "../../components/card-collection/card-collection";
 import { NavbarComponent } from "../../components/navbar/navbar";
 import { SearchComponent } from "../../components/search/search";
@@ -13,6 +14,7 @@ export function TemplateBrowserPage() {
 				<div className="layout-right">
 					<SearchComponent />
 					<CardCollectionComponent />
+					<ButtonComponent />
 				</div>
 			</div>
 		</div>
