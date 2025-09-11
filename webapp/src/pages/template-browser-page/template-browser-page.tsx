@@ -13,7 +13,9 @@ export function TemplateBrowserPage() {
 				</div>
 				<div className="layout-right">
 					<SearchComponent />
-					<CardCollectionComponent />
+					<div className="card-collection-component">
+						<CardCollectionComponent />
+					</div>
 					<ButtonComponent />
 				</div>
 			</div>
