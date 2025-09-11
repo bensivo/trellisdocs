@@ -1,0 +1,50 @@
+.templatepage {
+    .layout-lr {
+        display: flex;
+        flex-direction: row;
+
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .layout-left {
+        height: 100%;
+    }
+    .layout-right {
+        flex-grow: 1;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        background-color: black;
+        width: 100px;
+        height: 100%;
+    }
+    .header {
+        background-color: red;
+        height: 200px;
+    }
+    .content {
+        background-color: green;
+        flex-grow: 1;
+    }
+    .footer {
+        background-color: orange;
+        height: 200px;
+    }
+
+    .search-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+    }
+
+    .templatecard-container {
+        margin-top: 50px;
+    }
+
+
+}

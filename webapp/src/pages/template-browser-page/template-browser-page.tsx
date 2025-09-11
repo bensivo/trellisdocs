@@ -6,9 +6,15 @@ import "./template-browser-page.less";
 export function TemplateBrowserPage() {
 	return (
 		<div className="templatepage">
-			<NavbarComponent />
-            <SearchComponent />
-			<TemplateCardsComponent />
+			<div className="layout-lr">
+				<div className="layout-left">
+					<NavbarComponent/>
+				</div>
+				<div className="layout-right">
+					<SearchComponent/>
+					<TemplateCardsComponent/>
+				</div>
+			</div>
 		</div>
 	);
 }
