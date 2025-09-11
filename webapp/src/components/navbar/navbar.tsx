@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "remixicon/fonts/remixicon.css";
 import "./navbar.less";
 
 export function NavbarComponent() {

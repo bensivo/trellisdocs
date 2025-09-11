@@ -2,6 +2,7 @@ import { HomePage } from './pages/homepage/homepage'
 import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page'
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "remixicon/fonts/remixicon.css";
 import './App.less'
 
 function App() {
