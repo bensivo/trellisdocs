@@ -1,10 +1,19 @@
 import { HomePage } from './pages/homepage/homepage'
+import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page'
+import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page'
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './App.less'
 
 function App() {
   return (
     <>
-      <HomePage/>
+     <BrowserRouter>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/template" element={<TemplateBrowserPage />} />
+				<Route path="/template/new" element={<TemplateEditorPage />} />
+			</Routes>
+		</BrowserRouter>
     </>
   )
 }
