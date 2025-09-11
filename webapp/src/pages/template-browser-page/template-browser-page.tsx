@@ -1,18 +1,18 @@
+import { CardCollectionComponent } from "../../components/card-collection/card-collection";
 import { NavbarComponent } from "../../components/navbar/navbar";
 import { SearchComponent } from "../../components/search/search";
-import { TemplateCardsComponent } from "../../components/template-cards/template-cards";
 import "./template-browser-page.less";
 
 export function TemplateBrowserPage() {
 	return (
-		<div className="templatepage">
-			<div className="layout-lr">
+		<div className="template-browser-container">
+			<div className="layout-lr-container">
 				<div className="layout-left">
-					<NavbarComponent/>
+					<NavbarComponent />
 				</div>
 				<div className="layout-right">
-					<SearchComponent/>
-					<TemplateCardsComponent/>
+					<SearchComponent />
+					<CardCollectionComponent />
 				</div>
 			</div>
 		</div>

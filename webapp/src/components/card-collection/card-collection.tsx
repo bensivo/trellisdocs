@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./template-cards.less";
+import "./card-collection.less";
 
 type Card = {
 	id: number;
@@ -7,7 +7,7 @@ type Card = {
 	description: string;
 };
 
-export function TemplateCardsComponent() {
+export function CardCollectionComponent() {
 	const navigate = useNavigate();
 
 	const cards: Card[] = [
@@ -44,22 +44,20 @@ export function TemplateCardsComponent() {
 	];
 
 	return (
-		<div className="templatecard-container">
-			<div className="inner-container">
-				{cards.map((card) => (
-					<div key={card.id} className="card" onClick={() => navigate("/template/new")}>
-						<div className="circle"></div>
-						<div className="text-container">
-							<h3>{card.title}</h3>
-							<p>{card.description}</p>
-						</div>
+		<div className="card-container">
+			{cards.map((card) => (
+				<div
+					key={card.id}
+					className="card"
+					onClick={() => navigate("/template/new")}
+				>
+					<div className="circle"></div>
+					<div className="text-container">
+						<h3>{card.title}</h3>
+						<p>{card.description}</p>
 					</div>
-				))}
-			</div>
-			{/* should this be a component? */}
-			<div className="button-container">
-				<button>+ New Template</button>
-			</div>
+				</div>
+			))}
 		</div>
 	);
 }

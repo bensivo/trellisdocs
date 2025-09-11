@@ -1,19 +1,22 @@
 .search-container {
-    .search-box {
-        background-color: #282A28;
-        border: 1px solid #494949;
-        border-radius: 10px;
-        width: 500px;
-        height: 42px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
+    .search {
+        background-color: #2B2B2B;
+        border: none;
+        border-bottom: 2px solid #494949;
+        min-width: 300px;
+        height: 45px;
+        padding-left: 10px;
+    }
 
-        h3 {
-            background-color: #282A28;
-            color: #D8D3D3;
-            font-size: 16px;
+    .search::placeholder {
+        color: #D8D3D3;
+    }
+}
+
+@media (min-width: 700px) {
+    .search-container {
+        .search {
+            min-width: 500px;
         }
     }
 }
