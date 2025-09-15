@@ -2,11 +2,12 @@ from contextlib import asynccontextmanager
 from typing import Any, Optional
 from fastapi import FastAPI
 import asyncpg
-
+import os
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    dsn = "postgresql://postgres:postgres@db:5432/appdb"
+    db_host = os.getenv("DB_HOST", "db")
+    dsn = f"postgresql://postgres:postgres@{db_host}:5432/appdb"
     pool: Optional[asyncpg.Pool] = None
     try:
         pool = await asyncpg.create_pool(dsn, min_size=1, max_size=10)
