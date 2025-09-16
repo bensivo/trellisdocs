@@ -1,22 +1,23 @@
-import { HomePage } from './pages/homepage/homepage'
-import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page'
-import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page'
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
-import './App.less'
+import './App.less';
+import { HomePage } from './pages/homepage/homepage';
+import { LoginPage } from './pages/loginpage/loginpage';
+import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page';
+import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
+import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
 
 function App() {
-  return (
-    <>
-     <BrowserRouter>
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/template" element={<TemplateBrowserPage />} />
-				<Route path="/template/new" element={<TemplateEditorPage />} />
-			</Routes>
-		</BrowserRouter>
-    </>
-  )
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
+                <Route path="/login" element={<LoginPage/>} />
+                <Route path="/template" element={<LoginWrapper><TemplateBrowserPage/></LoginWrapper>} />
+                <Route path="/template/new" element={<LoginWrapper><TemplateEditorPage/></LoginWrapper>} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
-export default App
+export default App;
