@@ -1,21 +1,18 @@
+import { ButtonComponent } from "../button/button";
+import { FieldValueComponent } from "../field-value/field-value";
 import "./content.less";
 
-export function Content() {
+export function ContentComponent() {
 	return (
 		<div className="content-container">
-			<div className="content-box">
-				<h3>Content</h3>
-				<div className="field-container">
-					<p>Field Name</p>
-					<input type="text" placeholder="Value" />
-				</div>
-				<div className="field-container">
-					<p>Field Type</p>
-					<input type="text" placeholder="Value" />
-				</div>
-				<div className="button-container">
-					<button>+ Add Field</button>
-				</div>
+			<h3 className="content-title">Content</h3>
+			<div className="field-value-container">
+				<FieldValueComponent />
+				<FieldValueComponent />
+				<FieldValueComponent />
+			</div>
+			<div className="button-container">
+				<ButtonComponent />
 			</div>
 		</div>
 	);
