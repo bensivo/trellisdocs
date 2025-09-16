@@ -14,10 +14,10 @@ export function TemplateEditorPage() {
 					<div className="title-container">
 						<h3 className="title">{"Templates > Jira Epic"}</h3>
 					</div>
-					<div className="content-component-container">
+					<div className="content-container">
 						<ContentComponent />
 					</div>
-					<div className="properties-component-container">
+					<div className="properties-container">
 						<PropertiesComponent />
 					</div>
 				</div>
