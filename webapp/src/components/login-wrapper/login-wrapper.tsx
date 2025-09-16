@@ -13,10 +13,8 @@ export function LoginWrapper(props: PropsWithChildren) {
     }
 
     if (auth.isAuthenticated) {
-        console.log("Logged in")
         return props.children;
     } else {
-        console.log("Not logged in")
         return <Navigate to="/login"/>
     }
 }
