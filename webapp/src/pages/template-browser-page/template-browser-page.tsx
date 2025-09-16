@@ -6,14 +6,14 @@ import "./template-browser-page.less";
 
 export function TemplateBrowserPage() {
 	return (
-		<div className="template-browser-container">
+		<div className="template-browser-page">
 			<div className="layout-lr-container">
 				<div className="layout-left">
 					<NavbarComponent />
 				</div>
 				<div className="layout-right">
 					<SearchComponent />
-					<div className="card-collection-component">
+					<div className="card-collection-container">
 						<CardCollectionComponent />
 					</div>
 					<ButtonComponent />
