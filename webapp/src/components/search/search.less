@@ -1,0 +1,25 @@
+@import '../../styles.less';
+
+// <700px
+.search-component-container {
+    .search {
+        background-color: @bg-02;
+        border: none;
+        border-bottom: 2px solid @border;
+        min-width: 300px;
+        height: 45px;
+        padding-left: @padding-m;
+    }
+
+    .search::placeholder {
+        color: @text-01;
+    }
+}
+
+@media (min-width: 700px) {
+    .search-component-container {
+        .search {
+            min-width: 500px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import '../../styles.less';
+
+.card-component-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
+    max-width: 1000px;
+    gap: 20px;
+    
+    .card {
+        cursor: pointer;
+        background-color: @bg-02;
+        border-bottom: 2px solid @border;
+        width: 263px;
+        height: 144px;
+    }
+
+    .circle {
+        margin: 10px;
+        background-color: @text-01;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+
+    .text-container {
+        padding: @padding-s;
+        padding-bottom: 0px;
+        color: @text-01;
+        font-size: 12px;
+    }
+}
