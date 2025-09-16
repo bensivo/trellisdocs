@@ -1,15 +1,18 @@
+@import '../../styles.less';
+
+// <700px
 .search-container {
     .search {
-        background-color: #2B2B2B;
+        background-color: @bg-02;
         border: none;
-        border-bottom: 2px solid #494949;
+        border-bottom: 2px solid @border;
         min-width: 300px;
         height: 45px;
-        padding-left: 10px;
+        padding-left: @padding-m;
     }
 
     .search::placeholder {
-        color: #D8D3D3;
+        color: @text-01;
     }
 }
 
