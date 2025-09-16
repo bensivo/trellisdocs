@@ -1,21 +1,21 @@
 @import './styles.less';
 
-html,
-body {
-  height: 100%;
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; 
 }
 
 .layout-lr-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 100vw;
-  height: 100vh;
-  width: 100vw;
+  min-width: 100%;
 
   .layout-right {
     flex-grow: 1;
+    min-height: 100vh;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -28,12 +28,7 @@ body {
     flex-direction: row;
 
     .layout-left {
-      height: 100%;
       width: auto;
-    }
-
-    .layout-right {
-      height: 100%;
     }
   }
 }
