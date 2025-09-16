@@ -1,5 +1,6 @@
 import { ContentComponent } from "../../components/content/content";
 import { NavbarComponent } from "../../components/navbar/navbar";
+import { PropertiesComponent } from "../../components/properties/properties";
 import "./template-editor-page.less";
 
 export function TemplateEditorPage() {
@@ -15,6 +16,9 @@ export function TemplateEditorPage() {
 					</div>
 					<div className="content-component-container">
 						<ContentComponent />
+					</div>
+					<div className="properties-component-container">
+						<PropertiesComponent />
 					</div>
 				</div>
 			</div>
