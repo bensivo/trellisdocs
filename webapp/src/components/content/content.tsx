@@ -4,7 +4,7 @@ import "./content.less";
 
 export function ContentComponent() {
 	return (
-		<div className="content-container">
+		<div className="content-component-container">
 			<h3 className="content-title">Content</h3>
 			<div className="field-value-container">
 				<FieldValueComponent />

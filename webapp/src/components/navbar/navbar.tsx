@@ -11,7 +11,7 @@ export function NavbarComponent() {
 	};
 
 	return (
-		<div className="navbar-container">
+		<div className="navbar-component-container">
 			<div className="icons-container">
 				<i className="ri-search-line icon"></i>
 				<i

@@ -44,7 +44,7 @@ export function CardCollectionComponent() {
 	];
 
 	return (
-		<div className="card-container">
+		<div className="card-component-container">
 			{cards.map((card) => (
 				<div
 					key={card.id}
