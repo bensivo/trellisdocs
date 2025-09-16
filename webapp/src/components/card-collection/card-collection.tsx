@@ -44,7 +44,7 @@ export function CardCollectionComponent() {
 	];
 
 	return (
-		<>
+		<div className="card-container">
 			{cards.map((card) => (
 				<div
 					key={card.id}
@@ -58,6 +58,6 @@ export function CardCollectionComponent() {
 					</div>
 				</div>
 			))}
-		</>
+		</div>
 	);
 }
