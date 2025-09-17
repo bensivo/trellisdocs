@@ -1,0 +1,28 @@
+@import '../../styles.less';
+
+// <700px
+.properties-component-container {
+    width: 500px;
+
+    .properties-title {
+        color: @text-01;
+    }
+
+    .field-value-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: @padding-m;
+    }
+}
+
+@media (min-width: 700px) {
+    .properties-component-container {
+        width: 600px;
+    }
+}
