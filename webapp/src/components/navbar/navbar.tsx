@@ -13,6 +13,12 @@ export function NavbarComponent() {
 	return (
 		<div className="navbar-component-container">
 			<div className="icons-container">
+				<img 
+					className="logo" 
+					src="trellis-logo-06.svg"
+					onClick={() => navigate("/")}
+				/>
+
 				<i className="ri-search-line icon"></i>
 				<i
 					className="ri-folders-line icon"
