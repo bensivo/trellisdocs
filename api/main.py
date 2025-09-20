@@ -1,13 +1,17 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from routers.routes import router as api_router
-from internal.db import lifespan
+from dependencies import initialize_dependencies
+import uvicorn
 
-
-app = FastAPI(lifespan=lifespan)
-app.include_router(api_router, prefix="/api")
+# Lifecycle hook to allow for async initialization
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await initialize_dependencies()
+    yield
 
 
 if __name__ == "__main__":
-    import uvicorn
-
+    app = FastAPI(lifespan=lifespan)
+    app.include_router(api_router, prefix="/api")
     uvicorn.run(app, host="0.0.0.0", port=8000)
