@@ -1,14 +1,14 @@
 variable "environment" {
-  type        = string
-  default     = "dev"
+  type    = string
+  default = "dev"
 }
 
 variable "aws_region" {
-  type        = string
-  default     = "us-east-2"
+  type    = string
+  default = "us-east-2"
 }
 
 variable "project_name" {
-  type        = string
-  default     = "trellisdocs"
+  type    = string
+  default = "trellisdocs"
 }
