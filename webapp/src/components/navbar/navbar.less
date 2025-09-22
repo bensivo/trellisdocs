@@ -1,0 +1,95 @@
+@import '../../styles.less';
+
+// <700px
+.navbar-component-container {
+    height: fit-content;
+    width: 100%;
+    background-color: @bg-02;
+    display: flex;
+    flex-direction: row;
+
+
+    .icons-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        margin: @padding-s;
+        gap: @padding-l;
+    }
+
+    .logo {
+        width: 32px;
+    }
+    .logo:hover {
+        cursor: pointer;
+    }
+
+
+    .icon {
+        padding: @padding-xs;
+        background-color: @bg-02;
+        color: @text-01;
+        font-size: 24px;
+
+        &:hover {
+            cursor: pointer;
+            color: lighten(@text-01, 5%);
+            background-color: lighten(@bg-01, 10%);
+            border-radius: 4px;
+        }
+    }
+
+    .logout-container button {
+        margin-left: auto;
+
+        margin: @padding-s;
+        background-color: transparent;
+        color: @text-01;
+        font-size: 24px;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+            color: lighten(@text-01, 5%);
+            background-color: lighten(@bg-01, 10%);
+            border-radius: 4px;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+.navbar-component-container {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .icons-container {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logout-container button {
+        background-color: transparent;
+        color: @text-01;
+        font-size: 24px;
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: @padding-l;
+
+        &:hover {
+            cursor: pointer;
+            color: lighten(@text-01, 5%);
+            background-color: lighten(@bg-01, 10%);
+            border-radius: 4px;
+        }
+    }
+}
+}

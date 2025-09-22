@@ -1,22 +1,16 @@
 from typing import Any, Optional
 import asyncpg
-from fastapi import APIRouter, Request
-
+from fastapi import APIRouter, Request, Depends
+from dependencies import get_db_service
+from service.db import DBService
 
 router = APIRouter()
 
+@router.get("/migrations")
+async def get_migrations( request: Request, db: DBService = Depends(get_db_service)) -> list[Any]:
+    res = await db.query("SELECT * FROM migrations")
+    return res
 
-@router.get("/time")
-async def current_time(request: Request) -> dict[str, Any]:
-    pool: Optional[asyncpg.Pool] = getattr(request.app.state, "db_pool", None)
-    if not pool:
-        return {"db": "not_configured"}
-    async with pool.acquire() as conn:
-        now = await conn.fetchval("SELECT NOW()")
-    try:
-        return {"now": now.isoformat()}
-    except AttributeError:
-        return {"now": str(now)}
 
 @router.get("/health")
 async def health_check(request: Request) -> dict[str, Any]:

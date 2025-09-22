@@ -1,0 +1,42 @@
+import { useNavigate } from "react-router-dom";
+import "./navbar.less";
+import { useAuth } from "react-oidc-context";
+
+export function NavbarComponent() {
+	const navigate = useNavigate();
+	const auth = useAuth();
+
+	const signoutRedirect = () => {
+		auth.removeUser(); // Clears local login state. Should activate login-wrappers if on a restricted page
+	};
+
+	return (
+		<div className="navbar-component-container">
+			<div className="icons-container">
+				<img 
+					className="logo" 
+					src="trellis-logo-06.svg"
+					onClick={() => navigate("/")}
+				/>
+
+				<i className="ri-search-line icon"></i>
+				<i
+					className="ri-folders-line icon"
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/")}
+				></i>
+				<i
+					className="ri-file-copy-2-line icon"
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/template")}
+				></i>
+				<i className="ri-shapes-line icon"></i>
+			</div>
+			<div className="logout-container">
+				<button onClick={() => signoutRedirect()}>
+					<i className="ri-logout-box-line"></i>
+				</button>
+			</div>
+		</div>
+	);
+}

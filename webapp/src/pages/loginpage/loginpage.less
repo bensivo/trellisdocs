@@ -1,0 +1,27 @@
+@import '../../styles.less';
+
+.loginpage {
+    background-color: @bg-01;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: @accent;
+        border: none;
+        border-radius: 2px;
+        padding: 10px;
+        color: @text-01;
+    }
+
+    button:hover {
+        cursor: pointer; 
+        box-shadow: 0px 10px 15px -3px @bg-02;
+        background-color: lighten(@accent, 5%);
+    }
+}
