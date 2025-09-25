@@ -2,11 +2,19 @@ from dataclasses import dataclass
 from typing import Optional
 from model import Field
 
+
+@dataclass
+class CreateFieldRequest:
+    name: str
+    type: str
+    value: str
+
 @dataclass
 class CreateDocumentRequest:
     name: str
-    property_fields: list[Field]
-    content_fields: list[Field]
+    property_fields: list[CreateFieldRequest]
+    content_fields: list[CreateFieldRequest]
+
 
 @dataclass
 class UpdateDocumentRequest:
