@@ -2,7 +2,7 @@
 A DI container for all the global app dependencies
 """
 
-from service.db import DBService
+from api.service.db_svc import DBService
 from service.documents import DocumentsSvc
 
 db_service = None

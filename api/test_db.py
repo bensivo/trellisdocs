@@ -1,5 +1,5 @@
 
-from service.db import DBService
+from api.service.db_svc import DBService
 import asyncio
 
 async def main():

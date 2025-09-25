@@ -1,13 +1,13 @@
 from typing import Any, Optional
 import asyncpg
 from fastapi import APIRouter, Request, Depends
-from dependencies import get_db_service
-from service.db import DBService
+from di import get_db_service
+from api.service.db_svc import DBService
 
 router = APIRouter()
 
 @router.get("/migrations")
-async def get_migrations( request: Request, db: DBService = Depends(get_db_service)) -> list[Any]:
+async def get_migrations(request: Request, db: DBService = Depends(get_db_service)) -> list[Any]:
     res = await db.query("SELECT * FROM migrations")
     return res
 

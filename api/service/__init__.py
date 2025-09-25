@@ -1,1 +1,1 @@
-from .documents import DocumentsSvc, CreateDocumentRequest
+from .documents_svc import DocumentsSvc, CreateDocumentRequest

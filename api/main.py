@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from routers.routes import router as api_router
-from dependencies import initialize_dependencies
+from di import initialize_dependencies
 import uvicorn
 
 # Lifecycle hook to allow for async initialization
