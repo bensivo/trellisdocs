@@ -1,6 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel, Field as PydanticField
-from model import Field
+from pydantic import BaseModel
 
 class CreateFieldRequest(BaseModel):
     name: str
@@ -17,3 +16,19 @@ class UpdateDocumentRequest(BaseModel):
     name: Optional[str] = None
     property_fields: Optional[list[CreateFieldRequest]] = None
     content_fields: Optional[list[CreateFieldRequest]] = None
+
+
+class FieldResponse(BaseModel):
+    id: int
+    name: str
+    type: str
+    value: str
+
+class DocumentResponse(BaseModel):
+    id: int
+    name: str
+    property_fields: list[FieldResponse]
+    content_fields: list[FieldResponse]
+
+class DeleteDocumentResponse(BaseModel):
+    status: str

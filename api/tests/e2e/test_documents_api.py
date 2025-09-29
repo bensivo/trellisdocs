@@ -1,8 +1,7 @@
 import pytest
 import requests
-import json
 
-# This is an e2e test, it requests a running instance of the API
+# This is an e2e test, it requires a running instance of the API
 @pytest.mark.asyncio
 async def test_documents_api():
     # WHEN: I call POST /documents

@@ -1,5 +1,5 @@
 import asyncpg
-from typing import Optional, Dict, Any, List
+from typing import Dict, Any, List
 
 migrations = [
     {
