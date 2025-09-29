@@ -1,23 +1,19 @@
-from dataclasses import dataclass
 from typing import Optional
+from pydantic import BaseModel, Field as PydanticField
 from model import Field
 
-
-@dataclass
-class CreateFieldRequest:
+class CreateFieldRequest(BaseModel):
     name: str
     type: str
     value: str
 
-@dataclass
-class CreateDocumentRequest:
+class CreateDocumentRequest(BaseModel):
     name: str
     property_fields: list[CreateFieldRequest]
     content_fields: list[CreateFieldRequest]
 
 
-@dataclass
-class UpdateDocumentRequest:
+class UpdateDocumentRequest(BaseModel):
     name: Optional[str] = None
-    property_fields: Optional[list[Field]] = None
-    content_fields: Optional[list[Field]] = None
+    property_fields: Optional[list[CreateFieldRequest]] = None
+    content_fields: Optional[list[CreateFieldRequest]] = None

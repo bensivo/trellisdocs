@@ -1,0 +1,8 @@
+list:
+    just -l
+
+run: 
+    uv run main.py
+
+e2e: 
+    uv run pytest tests/e2e

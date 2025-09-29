@@ -64,7 +64,6 @@ class DocumentsSvc():
         """
         documents_data = await self.db_svc.query("SELECT id FROM documents ORDER BY created_at DESC")
         document_ids = [doc['id'] for doc in documents_data]
-        print(document_ids)
 
         documents = []
         for doc_id in document_ids: # TODO: some optimization here would be great, no duplicate call to get the document, and parallelism
