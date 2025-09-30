@@ -7,6 +7,7 @@ import { TemplateBrowserPage } from './pages/template-browser-page/template-brow
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
 import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
 import { SearchPage } from "./pages/search-page/search-page";
+import { IntegrationPipelinesPage } from "./pages/integration-pipelines-page/integration-pipelines-page";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/search" element={<SearchPage/>} />
+                <Route path="/integrations" element={<LoginWrapper><IntegrationPipelinesPage/></LoginWrapper>} />
                 <Route path="/template" element={<LoginWrapper><TemplateBrowserPage/></LoginWrapper>} />
                 <Route path="/template/new" element={<LoginWrapper><TemplateEditorPage/></LoginWrapper>} />
             </Routes>
