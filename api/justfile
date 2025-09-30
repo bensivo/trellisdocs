@@ -1,6 +1,9 @@
 list:
     just -l
 
+up:
+    docker-compose up --build
+
 run: 
     uv run main.py
 

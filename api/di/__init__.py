@@ -1,7 +1,6 @@
 """
 A DI container for all the global app dependencies
 """
-
 from service.db_svc import DBService
 from service.documents_svc import DocumentsSvc
 
