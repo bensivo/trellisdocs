@@ -8,7 +8,7 @@ class CreatePipelineRequest(BaseModel):
 
 class UpdatePipelineRequest(BaseModel):
     # TODO: Can this be optional?
-    name: Optional[str] = None 
+    name: str
     type: str
     cron_string: str
     configs: str 
