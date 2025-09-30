@@ -19,17 +19,17 @@ export function NavbarComponent() {
 					onClick={() => navigate("/")}
 				/>
 
-				<i className="ri-search-line icon"></i>
+				<i className="ri-search-line icon"
+					onClick={() => navigate("/search")}
+				/>
 				<i
 					className="ri-folders-line icon"
-					style={{ cursor: "pointer" }}
 					onClick={() => navigate("/")}
-				></i>
+				/>
 				<i
 					className="ri-file-copy-2-line icon"
-					style={{ cursor: "pointer" }}
 					onClick={() => navigate("/template")}
-				></i>
+				/>
 				<i className="ri-shapes-line icon"></i>
 			</div>
 			<div className="logout-container">
