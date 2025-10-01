@@ -1,5 +1,5 @@
 from model import Pipeline
-from schemas.document_schemas import CreatePipelineRequest, UpdatePipelineRequest
+from schemas.pipeline_schemas import CreatePipelineRequest, UpdatePipelineRequest
 from service.db_svc import DBService
 from typing import Dict, Any
 
@@ -18,7 +18,7 @@ class PipelineSvc():
             :return: The newly created Pipeline object
             """
             # Insert pipeline record
-            pipline_result = await self.db_svc.query(
+            pipeline_result = await self.db_svc.query(
                 "INSERT INTO pipelines (name) VALUES ($1) RETURNING id, name, type, cron_string, configs",
                 request.name
             )
@@ -42,7 +42,7 @@ class PipelineSvc():
             :return: List of Pipeline objects
             """
             pipelines_data = await self.db_svc.query("SELECT id FROM pipelines")
-            pipeline_ids = [pipeline['id'] for pipeline in pipelines_data]
+            pipelines_ids = [pipeline['id'] for pipeline in pipelines_data]
 
             pipelines = []
             for pipeline_id in pipelines_ids:  # TODO: some optimization here would be great, no duplicate call to get the pipeline, and parallelism 
@@ -57,8 +57,8 @@ class PipelineSvc():
             :param id: The ID of the pipeline to retrieve
             :return: The Pipeline object if found, otherwise None
             """
-            pipeline_raw = await self.db_svc.query("SELECT id, name, created_at FROM pipelines WHERE id = $1", id)
-            if not pipeline_raw:
+            pipeline_row = await self.db_svc.query("SELECT id, name, created_at FROM pipelines WHERE id = $1", id)
+            if not pipeline_row:
                 return None
 
             return Pipeline(

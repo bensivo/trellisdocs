@@ -26,6 +26,11 @@ This project uses `uv` for package management. Dependencies are defined in `pypr
 - **GET** `/api/documents/{document_id}` - Get a document by ID
 - **PATCH** `/api/documents/{document_id}` - Update a document
 - **DELETE** `/api/documents/{document_id}` - Delete a document
+- **POST** `/api/pipelines` - Create a pipeline
+- **GET** `/api/pipelines` - List all pipelines
+- **GET** `/api/pipelines/{pipeline_id}` - Get a pipeline by ID
+- **PATCH** `/api/pipelines/{pipeline_id}` - Update a pipeline
+- **DELETE** `/api/pipelines/{document_id}` - Delete a pipeline
 
 ## Testing
 
