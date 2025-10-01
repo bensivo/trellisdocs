@@ -1,4 +1,5 @@
 import { NavbarComponent } from "../../components/navbar/navbar";
+import { useNavigate } from "react-router-dom";
 import "./integration-pipelines-page.less";
 
 type Pipeline = {
@@ -9,6 +10,8 @@ type Pipeline = {
 };
 
 export function IntegrationPipelinesPage() {
+  const navigate = useNavigate();
+  
   const pipelines: Pipeline[] = [
     {
       id: 1,
@@ -61,7 +64,12 @@ export function IntegrationPipelinesPage() {
             </div>
             <div className="search-container">
               <input className="searchbar" placeholder="Search" />
-              <button className="new-pipeline-btn">New Pipeline +</button>
+              <button 
+                className="new-pipeline-btn"
+                onClick={() => navigate("/integrations/new")}
+              >
+                New Pipeline +
+              </button>
             </div>
             <div className="pipelines-container"></div>
             <div className="pipelines-list">

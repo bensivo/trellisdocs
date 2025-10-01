@@ -15,7 +15,7 @@ export function NavbarComponent() {
 			<div className="icons-container">
 				<img 
 					className="logo" 
-					src="trellis-logo-06.svg"
+					src="/trellis-logo-06.svg"
 					onClick={() => navigate("/")}
 				/>
 
