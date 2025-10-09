@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "remixicon/fonts/remixicon.css";
-import './App.less';
+import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
 import { HomePage } from './pages/homepage/homepage';
 import { LoginPage } from './pages/loginpage/loginpage';
+import { SearchPage } from "./pages/search-page/search-page";
 import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page';
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
-import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
-import { SearchPage } from "./pages/search-page/search-page";
+
+import "remixicon/fonts/remixicon.css";
+import './App.less';
 
 function App() {
     return (

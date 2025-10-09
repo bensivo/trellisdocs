@@ -1,8 +1,10 @@
+import { Provider } from 'jotai';
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { AuthProvider } from "react-oidc-context";
 import App from "./app";
 import "./index.css";
-import { AuthProvider } from "react-oidc-context";
+import { initializeStore } from "./store/store";
 
 const cognitoAuthConfig = {
 	authority: "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_ViGpu0xap",
@@ -12,10 +14,14 @@ const cognitoAuthConfig = {
 	scope: "openid email",
 };
 
+const store = initializeStore();
+
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<AuthProvider {...cognitoAuthConfig}>
-			<App />
-		</AuthProvider>
+		<Provider store={store}>
+			<AuthProvider {...cognitoAuthConfig}>
+				<App />
+			</AuthProvider>
+		</Provider>
 	</StrictMode>
 );
