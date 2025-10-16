@@ -17,8 +17,6 @@ async def initialize_dependencies():
 
     documents_service = DocumentsSvc(db_service)
 
-
-
 """
 Getter functions that return the singleton instances of each service,
 defined above.

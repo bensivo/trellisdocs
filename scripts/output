@@ -1,0 +1,4651 @@
+[
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10251",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10251",
+    "key": "TREL-33",
+    "fields": {
+      "summary": "Tech Debt - Query optimization in DocumentsSvc.list_documents()",
+      "created": "2025-09-24T20:57:06.605-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10251/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T20:57:06.692-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10250",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10250",
+    "key": "TREL-32",
+    "fields": {
+      "summary": "Tech Debt - All Document fields returned as strings",
+      "created": "2025-09-24T20:56:45.131-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10250/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T20:56:45.226-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10249",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10249",
+    "key": "TREL-31",
+    "fields": {
+      "summary": "Tech Debt - Documents Svc doesn't return 'createdAt'",
+      "created": "2025-09-24T20:56:31.453-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10249/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T20:56:31.530-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10248",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10248",
+    "key": "TREL-30",
+    "fields": {
+      "summary": "UI E2E Test Suite",
+      "created": "2025-09-24T19:25:41.026-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create a cypress or playwright E2E Test suite for our frontend UI."
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10248/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:26:20.257-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10247",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10247",
+    "key": "TREL-29",
+    "fields": {
+      "summary": "Document Browser UI screens",
+      "created": "2025-09-24T19:01:37.839-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "d442e22b-0998-477f-a60c-dfdc7bbea1f9",
+                  "alt": "Document Search(5).png",
+                  "collection": "",
+                  "height": 1024,
+                  "width": 1440
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10247/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-29T21:05:12.841-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10012",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "In Progress",
+        "id": "10012",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10246",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10246",
+    "key": "TREL-28",
+    "fields": {
+      "summary": "Pipeline Creation UI screens",
+      "created": "2025-09-24T19:01:31.425-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Implement the UI screens for creating a pipeline:"
+              }
+            ]
+          },
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "522b1ead-f694-48fe-8a6a-d41970f7cca0",
+                  "alt": "Integration Setup(2).png",
+                  "collection": "",
+                  "height": 1024,
+                  "width": 1440
+                }
+              }
+            ]
+          },
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "5b4f2281-7c81-472d-83fe-bf712dd671ef",
+                  "alt": "Integration Setup(3).png",
+                  "collection": "",
+                  "height": 1024,
+                  "width": 1440
+                }
+              }
+            ]
+          },
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "1c59f87e-95dc-46dc-934d-f4b670f23edd",
+                  "alt": "Integration Setup(4).png",
+                  "collection": "",
+                  "height": 1024,
+                  "width": 1440
+                }
+              }
+            ]
+          },
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "4ef16a1c-962b-48fd-9a34-69e4f79eb545",
+                  "alt": "Integration Setup(5).png",
+                  "collection": "",
+                  "height": 1024,
+                  "width": 1440
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10246/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:47:53.634-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10012",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "In Progress",
+        "id": "10012",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10245",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10245",
+    "key": "TREL-27",
+    "fields": {
+      "summary": "Implement Jira integration pipeline",
+      "created": "2025-09-24T19:01:24.947-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "In the \u201cpipeline_runner\u201d portion of the code, implement a Jira integration."
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Use the Jira rest api to pull stories from our trellisdocs Jira instance, and push them to the Documents table."
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10245/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:46.453-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10244",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10244",
+    "key": "TREL-26",
+    "fields": {
+      "summary": "Invoke a pipeline runner on a schedule",
+      "created": "2025-09-24T19:01:17.903-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "For all the pipelines in the DB, we should be able to call some \u201cpipeline_runner\u201d function based on the cron_string defined in that pipeline."
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The function can be a hello_world for now."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The function should get the pipeline configs as an argument"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The function should be async, so many can run at once"
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10244/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:46.215-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10243",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10243",
+    "key": "TREL-25",
+    "fields": {
+      "summary": "CRUD REST API for pipelines",
+      "created": "2025-09-24T19:00:48.339-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create a REST API that exposes the CRUD service for pipelines over HTTP"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "POST /pipelines"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GET /pipelines"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GET /pipelines/:id"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "PATCH /pipelines/:id"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "DELETE /pipelines/:id"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10243/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-30T21:39:12.868-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10012",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "In Progress",
+        "id": "10012",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10242",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10242",
+    "key": "TREL-24",
+    "fields": {
+      "summary": "CRUD service for pipelines",
+      "created": "2025-09-24T19:00:45.062-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create a service in python code with these functions:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "create_pipeline"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "list_pipelines"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "get_pipeline"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "update_pipeline"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "delete_pipeline"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "The service should write persist these to the DB"
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10242/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-30T14:40:49.018-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10012",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "In Progress",
+        "id": "10012",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10241",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10241",
+    "key": "TREL-23",
+    "fields": {
+      "summary": "Create Pipelines table in Postgres",
+      "created": "2025-09-24T19:00:40.552-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "a06805c2-7a10-449b-9ab6-dafadcaf336f",
+                  "alt": "image-20250925-001251.png",
+                  "collection": "",
+                  "height": 208,
+                  "width": 397
+                }
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create the migrations for this tabl"
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10241/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-30T13:31:38.658-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10012",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "In Progress",
+        "id": "10012",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/4",
+          "id": 4,
+          "key": "indeterminate",
+          "colorName": "yellow",
+          "name": "In Progress"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10240",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10240",
+    "key": "TREL-22",
+    "fields": {
+      "summary": "CRUD REST API for documents",
+      "created": "2025-09-24T19:00:30.138-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create an HTTP REST API which exposes the functions of the CRUD SErvice over HTTP:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "POST /documents"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GET /documents"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GET /documents/:id"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "PATCH /documents/:id"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "DELETE /documents/:id"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10240/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-29T18:46:15.749-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10239",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10239",
+    "key": "TREL-21",
+    "fields": {
+      "summary": "CRUD Service for documents",
+      "created": "2025-09-24T19:00:25.126-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create some \u201cservice\u201d in the python API codebase with these functions:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "create_document"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "list_documents"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "get_document"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "update_document"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "delete_document"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "It should use the Postgres database to implement all of these"
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10239/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-29T18:46:08.273-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10238",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10238",
+    "key": "TREL-20",
+    "fields": {
+      "summary": "Create Documents Table in Postgres",
+      "created": "2025-09-24T19:00:19.394-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "e6c000b4-7f0c-4d38-b61e-419acbaea300",
+                  "alt": "image-20250925-000426.png",
+                  "collection": "",
+                  "height": 499,
+                  "width": 971
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10238/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-29T18:46:02.327-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10207",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10207",
+    "key": "TREL-17",
+    "fields": {
+      "summary": "CRUD API design for Documents",
+      "created": "2025-09-10T20:27:12.307-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Context:",
+                "marks": [
+                  {
+                    "type": "strong"
+                  },
+                  {
+                    "type": "underline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "At some point, we\u2019re going to have to store raw files, like PDFs, Images, etc. "
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "We\u2019ll need some REST endpoint that can POST a file, then another to GET it."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "ACs:",
+                "marks": [
+                  {
+                    "type": "strong"
+                  },
+                  {
+                    "type": "underline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "I should be able to push a binary media file (image, pdf, etc.) to an endpoint"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "I should be able to retrieve this media file from another endpoint"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bulletList",
+                    "content": [
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "This one should return proper Content-Type headers, so that my computer recognizes the format of the file appropriately"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Notes:",
+                "marks": [
+                  {
+                    "type": "strong"
+                  },
+                  {
+                    "type": "underline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "When implementing, start by just using the file-system of the API. Once oyu have it figured out in the FS, then try something like S3."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Remember, we want Trellis to be fully self-hostable, so don\u2019t bake in the dependency to just s3."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10207/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:15.083-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10205",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10205",
+    "key": "TREL-15",
+    "fields": {
+      "summary": "Logo design",
+      "created": "2025-09-10T20:26:39.829-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10205/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-16T23:29:35.967-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10174",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10174",
+    "key": "TREL-14",
+    "fields": {
+      "summary": "API E2E Test Suite",
+      "created": "2025-09-03T19:14:04.842-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Create a new module in the repo \u201capi-e2e\u201d which implements e2e test suites for our backend."
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10174/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:25:29.249-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10173",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10173",
+    "key": "TREL-13",
+    "fields": {
+      "summary": "Webapp - Login with Cognito and OAuth",
+      "created": "2025-09-03T19:08:57.804-0500",
+      "description": null,
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10173/comment/10081",
+            "id": "10081",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "mediaSingle",
+                  "attrs": {
+                    "layout": "align-start"
+                  },
+                  "content": [
+                    {
+                      "type": "media",
+                      "attrs": {
+                        "type": "file",
+                        "id": "d7b1803b-3d90-4dd1-9b98-87f4d8a14930",
+                        "alt": "demo-login-nav.mp4",
+                        "collection": "",
+                        "height": 810,
+                        "width": 1280
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-15T19:42:29.911-0500",
+            "updated": "2025-09-15T19:42:29.911-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10173/comment",
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-15T19:42:29.911-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10172",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10172",
+    "key": "TREL-12",
+    "fields": {
+      "summary": "Webapp - Basic layout",
+      "created": "2025-09-03T19:08:52.828-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "12a7e062-b8f6-465b-a30a-04383bd73a5a",
+                  "alt": "image-20250904-000959.png",
+                  "collection": "",
+                  "height": 520,
+                  "width": 703
+                }
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Implement this. also add:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "routing to different pages"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "notes:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "all the icons are from remixicon"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "The image:"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "mediaSingle",
+                    "attrs": {
+                      "layout": "align-start"
+                    },
+                    "content": [
+                      {
+                        "type": "media",
+                        "attrs": {
+                          "type": "file",
+                          "id": "afb60a1f-8b44-4058-9d39-2fc52f5c504b",
+                          "alt": "Rectangle(1).svg",
+                          "collection": ""
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10172/comment/10049",
+            "id": "10049",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=712020%3A3ce5e02f-9ca3-4db8-8598-7750d847a6dc",
+              "accountId": "712020:3ce5e02f-9ca3-4db8-8598-7750d847a6dc",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "24x24": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "16x16": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "32x32": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png"
+              },
+              "displayName": "Thane Tate",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "mediaSingle",
+                  "attrs": {
+                    "layout": "align-start"
+                  },
+                  "content": [
+                    {
+                      "type": "media",
+                      "attrs": {
+                        "type": "file",
+                        "id": "66494395-d8d7-4531-9d71-ea6a9167248f",
+                        "alt": "trellis-mockup.mov",
+                        "collection": "",
+                        "height": 1966,
+                        "width": 3360
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=712020%3A3ce5e02f-9ca3-4db8-8598-7750d847a6dc",
+              "accountId": "712020:3ce5e02f-9ca3-4db8-8598-7750d847a6dc",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "24x24": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "16x16": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png",
+                "32x32": "https://secure.gravatar.com/avatar/c19d891d51d6d8289309cea8401eed58?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTT-6.png"
+              },
+              "displayName": "Thane Tate",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-09T16:01:02.853-0500",
+            "updated": "2025-09-09T16:01:02.853-0500",
+            "jsdPublic": true
+          },
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10172/comment/10053",
+            "id": "10053",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Things to do: Refactor, and make it all decently responsive"
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-10T20:26:25.128-0500",
+            "updated": "2025-09-10T20:26:25.128-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10172/comment",
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:08.543-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10139",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10139",
+    "key": "TREL-11",
+    "fields": {
+      "summary": "High-Fidelity Mockups",
+      "created": "2025-09-01T12:32:05.321-0500",
+      "description": null,
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10139/comment/10050",
+            "id": "10050",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Pages that are done:"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulletList",
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Template browser"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Template editor"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Doc search"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Pages to do:"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulletList",
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Homepage"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Doc editor / viewer"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Integration editor"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-10T20:22:58.751-0500",
+            "updated": "2025-09-10T20:22:58.751-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10139/comment",
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:23:50.072-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10120",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10120",
+    "key": "TREL-10",
+    "fields": {
+      "summary": "Setup AWS account",
+      "created": "2025-08-28T09:09:01.060-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10120/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-08-28T20:35:35.843-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10119",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10119",
+    "key": "TREL-9",
+    "fields": {
+      "summary": "Hosting infra skeleton",
+      "created": "2025-08-27T19:52:43.321-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "mediaSingle",
+            "attrs": {
+              "layout": "align-start"
+            },
+            "content": [
+              {
+                "type": "media",
+                "attrs": {
+                  "type": "file",
+                  "id": "8ebabca0-6b45-44f1-b70e-e38b0f76d97f",
+                  "alt": "image-20250904-000748.png",
+                  "collection": "",
+                  "height": 503,
+                  "width": 857
+                }
+              }
+            ]
+          },
+          {
+            "type": "paragraph"
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "ACs:",
+                "marks": [
+                  {
+                    "type": "strong"
+                  },
+                  {
+                    "type": "underline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "We have a website at "
+                      },
+                      {
+                        "type": "text",
+                        "text": "trellisdocs.com",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "http://trellisdocs.com"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ", usign this tech stsack (EC2, public IP, squarespace domains, docker, supabase, etc.)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "It can be fully manually deployed"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10119/comment/10052",
+            "id": "10052",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Things left to do:"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulletList",
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Put the real applications into the VM (through docker)"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Setup supabase account and connection"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Setup parameter store"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Setup Cognito user pool"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph"
+                },
+                {
+                  "type": "bulletList",
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Terraform scripts for all of it (except the VM setup)"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-10T20:25:04.317-0500",
+            "updated": "2025-09-10T20:25:04.317-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10119/comment",
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:05.110-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10118",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10118",
+    "key": "TREL-8",
+    "fields": {
+      "summary": "Backend Skeleton",
+      "created": "2025-08-27T19:40:26.228-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Stack:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "python"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "uv"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "fastapi"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "postgres"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "docker"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "jest for e2e testing"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10118/comment/10016",
+            "id": "10016",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "inlineCard",
+                      "attrs": {
+                        "url": "https://github.com/bensivo/trellisdocs"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-08-27T19:57:08.367-0500",
+            "updated": "2025-08-27T19:57:08.367-0500",
+            "jsdPublic": true
+          },
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10118/comment/10051",
+            "id": "10051",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Things left, just code review."
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-09-10T20:23:42.732-0500",
+            "updated": "2025-09-10T20:23:42.732-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10118/comment",
+        "maxResults": 2,
+        "total": 2,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-24T19:24:00.845-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10117",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10117",
+    "key": "TREL-7",
+    "fields": {
+      "summary": "Web App Skeleton",
+      "created": "2025-08-27T19:35:39.710-0500",
+      "description": {
+        "type": "doc",
+        "version": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Stack:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "React"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "less"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "vite"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "jotai / redux toolkit"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "comment": {
+        "comments": [
+          {
+            "self": "https://bensivo.atlassian.net/rest/api/3/issue/10117/comment/10015",
+            "id": "10015",
+            "author": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "body": {
+              "type": "doc",
+              "version": 1,
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "inlineCard",
+                      "attrs": {
+                        "url": "https://github.com/bensivo/trellisdocs"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    }
+                  ]
+                }
+              ]
+            },
+            "updateAuthor": {
+              "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+              "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+              "emailAddress": "bensivo@gmail.com",
+              "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+                "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+              },
+              "displayName": "Benjamin Sivoravong",
+              "active": true,
+              "timeZone": "America/Chicago",
+              "accountType": "atlassian"
+            },
+            "created": "2025-08-27T19:57:02.751-0500",
+            "updated": "2025-08-27T19:57:02.751-0500",
+            "jsdPublic": true
+          }
+        ],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10117/comment",
+        "maxResults": 1,
+        "total": 1,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-03T18:51:03.787-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10116",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10116",
+    "key": "TREL-6",
+    "fields": {
+      "summary": "Define MVP user journeys",
+      "created": "2025-08-27T19:33:02.133-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10116/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-01T12:31:29.843-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10114",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10114",
+    "key": "TREL-5",
+    "fields": {
+      "summary": "Wireframes for basic user journey",
+      "created": "2025-08-27T19:32:41.701-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10114/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-01T12:31:32.053-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10108",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10108",
+    "key": "TREL-2",
+    "fields": {
+      "summary": "Define our differentiators in the market",
+      "created": "2025-08-27T19:30:42.193-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10108/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-09-01T09:21:58.224-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10013",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "Done",
+        "id": "10013",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/3",
+          "id": 3,
+          "key": "done",
+          "colorName": "green",
+          "name": "Done"
+        }
+      }
+    }
+  },
+  {
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10106",
+    "self": "https://bensivo.atlassian.net/rest/api/3/issue/10106",
+    "key": "TREL-1",
+    "fields": {
+      "summary": "Foundation Sprint",
+      "created": "2025-08-27T19:27:29.568-0500",
+      "description": null,
+      "comment": {
+        "comments": [],
+        "self": "https://bensivo.atlassian.net/rest/api/3/issue/10106/comment",
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "reporter": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/user?accountId=70121%3A685a29a6-5998-410b-8461-583c9eefb9cc",
+        "accountId": "70121:685a29a6-5998-410b-8461-583c9eefb9cc",
+        "emailAddress": "bensivo@gmail.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "24x24": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "16x16": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png",
+          "32x32": "https://secure.gravatar.com/avatar/e6a7bbdd9e115ec818738b6a5890a970?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBS-5.png"
+        },
+        "displayName": "Benjamin Sivoravong",
+        "active": true,
+        "timeZone": "America/Chicago",
+        "accountType": "atlassian"
+      },
+      "priority": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/priority/3",
+        "iconUrl": "https://bensivo.atlassian.net/images/icons/priorities/medium_new.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "updated": "2025-08-27T19:27:30.136-0500",
+      "status": {
+        "self": "https://bensivo.atlassian.net/rest/api/3/status/10011",
+        "description": "",
+        "iconUrl": "https://bensivo.atlassian.net/",
+        "name": "To Do",
+        "id": "10011",
+        "statusCategory": {
+          "self": "https://bensivo.atlassian.net/rest/api/3/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  }
+]
+To Do
+{
+  "id": 9,
+  "name": "10251 - Tech Debt - Query optimization in DocumentsSvc.list_documents()",
+  "property_fields": [
+    {
+      "id": 8,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T20:57:06.605-0500"
+    },
+    {
+      "id": 9,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 10,
+      "name": "Summary",
+      "type": "text",
+      "value": "Tech Debt - Query optimization in DocumentsSvc.list_documents()"
+    },
+    {
+      "id": 11,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 12,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 13,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 10,
+  "name": "10250 - Tech Debt - All Document fields returned as strings",
+  "property_fields": [
+    {
+      "id": 10,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T20:56:45.131-0500"
+    },
+    {
+      "id": 11,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 14,
+      "name": "Summary",
+      "type": "text",
+      "value": "Tech Debt - All Document fields returned as strings"
+    },
+    {
+      "id": 15,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 16,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 17,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 11,
+  "name": "10249 - Tech Debt - Documents Svc doesn't return 'createdAt'",
+  "property_fields": [
+    {
+      "id": 12,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T20:56:31.453-0500"
+    },
+    {
+      "id": 13,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 18,
+      "name": "Summary",
+      "type": "text",
+      "value": "Tech Debt - Documents Svc doesn't return 'createdAt'"
+    },
+    {
+      "id": 19,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 20,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 21,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 12,
+  "name": "10248 - UI E2E Test Suite",
+  "property_fields": [
+    {
+      "id": 14,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:25:41.026-0500"
+    },
+    {
+      "id": 15,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 22,
+      "name": "Summary",
+      "type": "text",
+      "value": "UI E2E Test Suite"
+    },
+    {
+      "id": 23,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 24,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 25,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+In Progress
+{
+  "id": 13,
+  "name": "10247 - Document Browser UI screens",
+  "property_fields": [
+    {
+      "id": 16,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:01:37.839-0500"
+    },
+    {
+      "id": 17,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 26,
+      "name": "Summary",
+      "type": "text",
+      "value": "Document Browser UI screens"
+    },
+    {
+      "id": 27,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 28,
+      "name": "Status",
+      "type": "text",
+      "value": "In Progress"
+    },
+    {
+      "id": 29,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+In Progress
+{
+  "id": 14,
+  "name": "10246 - Pipeline Creation UI screens",
+  "property_fields": [
+    {
+      "id": 18,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:01:31.425-0500"
+    },
+    {
+      "id": 19,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 30,
+      "name": "Summary",
+      "type": "text",
+      "value": "Pipeline Creation UI screens"
+    },
+    {
+      "id": 31,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 32,
+      "name": "Status",
+      "type": "text",
+      "value": "In Progress"
+    },
+    {
+      "id": 33,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 15,
+  "name": "10245 - Implement Jira integration pipeline",
+  "property_fields": [
+    {
+      "id": 20,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:01:24.947-0500"
+    },
+    {
+      "id": 21,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 34,
+      "name": "Summary",
+      "type": "text",
+      "value": "Implement Jira integration pipeline"
+    },
+    {
+      "id": 35,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 36,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 37,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 16,
+  "name": "10244 - Invoke a pipeline runner on a schedule",
+  "property_fields": [
+    {
+      "id": 22,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:01:17.903-0500"
+    },
+    {
+      "id": 23,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 38,
+      "name": "Summary",
+      "type": "text",
+      "value": "Invoke a pipeline runner on a schedule"
+    },
+    {
+      "id": 39,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 40,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 41,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+In Progress
+{
+  "id": 17,
+  "name": "10243 - CRUD REST API for pipelines",
+  "property_fields": [
+    {
+      "id": 24,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:48.339-0500"
+    },
+    {
+      "id": 25,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 42,
+      "name": "Summary",
+      "type": "text",
+      "value": "CRUD REST API for pipelines"
+    },
+    {
+      "id": 43,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 44,
+      "name": "Status",
+      "type": "text",
+      "value": "In Progress"
+    },
+    {
+      "id": 45,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+In Progress
+{
+  "id": 18,
+  "name": "10242 - CRUD service for pipelines",
+  "property_fields": [
+    {
+      "id": 26,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:45.062-0500"
+    },
+    {
+      "id": 27,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 46,
+      "name": "Summary",
+      "type": "text",
+      "value": "CRUD service for pipelines"
+    },
+    {
+      "id": 47,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 48,
+      "name": "Status",
+      "type": "text",
+      "value": "In Progress"
+    },
+    {
+      "id": 49,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+In Progress
+{
+  "id": 19,
+  "name": "10241 - Create Pipelines table in Postgres",
+  "property_fields": [
+    {
+      "id": 28,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:40.552-0500"
+    },
+    {
+      "id": 29,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 50,
+      "name": "Summary",
+      "type": "text",
+      "value": "Create Pipelines table in Postgres"
+    },
+    {
+      "id": 51,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 52,
+      "name": "Status",
+      "type": "text",
+      "value": "In Progress"
+    },
+    {
+      "id": 53,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 20,
+  "name": "10240 - CRUD REST API for documents",
+  "property_fields": [
+    {
+      "id": 30,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:30.138-0500"
+    },
+    {
+      "id": 31,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 54,
+      "name": "Summary",
+      "type": "text",
+      "value": "CRUD REST API for documents"
+    },
+    {
+      "id": 55,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 56,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 57,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 21,
+  "name": "10239 - CRUD Service for documents",
+  "property_fields": [
+    {
+      "id": 32,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:25.126-0500"
+    },
+    {
+      "id": 33,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 58,
+      "name": "Summary",
+      "type": "text",
+      "value": "CRUD Service for documents"
+    },
+    {
+      "id": 59,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 60,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 61,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 22,
+  "name": "10238 - Create Documents Table in Postgres",
+  "property_fields": [
+    {
+      "id": 34,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-24T19:00:19.394-0500"
+    },
+    {
+      "id": 35,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 62,
+      "name": "Summary",
+      "type": "text",
+      "value": "Create Documents Table in Postgres"
+    },
+    {
+      "id": 63,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 64,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 65,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 23,
+  "name": "10207 - CRUD API design for Documents",
+  "property_fields": [
+    {
+      "id": 36,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-10T20:27:12.307-0500"
+    },
+    {
+      "id": 37,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 66,
+      "name": "Summary",
+      "type": "text",
+      "value": "CRUD API design for Documents"
+    },
+    {
+      "id": 67,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 68,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 69,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 24,
+  "name": "10205 - Logo design",
+  "property_fields": [
+    {
+      "id": 38,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-10T20:26:39.829-0500"
+    },
+    {
+      "id": 39,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 70,
+      "name": "Summary",
+      "type": "text",
+      "value": "Logo design"
+    },
+    {
+      "id": 71,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 72,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 73,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 25,
+  "name": "10174 - API E2E Test Suite",
+  "property_fields": [
+    {
+      "id": 40,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-03T19:14:04.842-0500"
+    },
+    {
+      "id": 41,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 74,
+      "name": "Summary",
+      "type": "text",
+      "value": "API E2E Test Suite"
+    },
+    {
+      "id": 75,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 76,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 77,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 26,
+  "name": "10173 - Webapp - Login with Cognito and OAuth",
+  "property_fields": [
+    {
+      "id": 42,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-03T19:08:57.804-0500"
+    },
+    {
+      "id": 43,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 78,
+      "name": "Summary",
+      "type": "text",
+      "value": "Webapp - Login with Cognito and OAuth"
+    },
+    {
+      "id": 79,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 80,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 81,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 27,
+  "name": "10172 - Webapp - Basic layout",
+  "property_fields": [
+    {
+      "id": 44,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-03T19:08:52.828-0500"
+    },
+    {
+      "id": 45,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 82,
+      "name": "Summary",
+      "type": "text",
+      "value": "Webapp - Basic layout"
+    },
+    {
+      "id": 83,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 84,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 85,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 28,
+  "name": "10139 - High-Fidelity Mockups",
+  "property_fields": [
+    {
+      "id": 46,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-09-01T12:32:05.321-0500"
+    },
+    {
+      "id": 47,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 86,
+      "name": "Summary",
+      "type": "text",
+      "value": "High-Fidelity Mockups"
+    },
+    {
+      "id": 87,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 88,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 89,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 29,
+  "name": "10120 - Setup AWS account",
+  "property_fields": [
+    {
+      "id": 48,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-28T09:09:01.060-0500"
+    },
+    {
+      "id": 49,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 90,
+      "name": "Summary",
+      "type": "text",
+      "value": "Setup AWS account"
+    },
+    {
+      "id": 91,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 92,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 93,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 30,
+  "name": "10119 - Hosting infra skeleton",
+  "property_fields": [
+    {
+      "id": 50,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:52:43.321-0500"
+    },
+    {
+      "id": 51,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 94,
+      "name": "Summary",
+      "type": "text",
+      "value": "Hosting infra skeleton"
+    },
+    {
+      "id": 95,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 96,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 97,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 31,
+  "name": "10118 - Backend Skeleton",
+  "property_fields": [
+    {
+      "id": 52,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:40:26.228-0500"
+    },
+    {
+      "id": 53,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 98,
+      "name": "Summary",
+      "type": "text",
+      "value": "Backend Skeleton"
+    },
+    {
+      "id": 99,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 100,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 101,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 32,
+  "name": "10117 - Web App Skeleton",
+  "property_fields": [
+    {
+      "id": 54,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:35:39.710-0500"
+    },
+    {
+      "id": 55,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 102,
+      "name": "Summary",
+      "type": "text",
+      "value": "Web App Skeleton"
+    },
+    {
+      "id": 103,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 104,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 105,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 33,
+  "name": "10116 - Define MVP user journeys",
+  "property_fields": [
+    {
+      "id": 56,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:33:02.133-0500"
+    },
+    {
+      "id": 57,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 106,
+      "name": "Summary",
+      "type": "text",
+      "value": "Define MVP user journeys"
+    },
+    {
+      "id": 107,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 108,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 109,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 34,
+  "name": "10114 - Wireframes for basic user journey",
+  "property_fields": [
+    {
+      "id": 58,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:32:41.701-0500"
+    },
+    {
+      "id": 59,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 110,
+      "name": "Summary",
+      "type": "text",
+      "value": "Wireframes for basic user journey"
+    },
+    {
+      "id": 111,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 112,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 113,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+Done
+{
+  "id": 35,
+  "name": "10108 - Define our differentiators in the market",
+  "property_fields": [
+    {
+      "id": 60,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:30:42.193-0500"
+    },
+    {
+      "id": 61,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 114,
+      "name": "Summary",
+      "type": "text",
+      "value": "Define our differentiators in the market"
+    },
+    {
+      "id": 115,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 116,
+      "name": "Status",
+      "type": "text",
+      "value": "Done"
+    },
+    {
+      "id": 117,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}
+To Do
+{
+  "id": 36,
+  "name": "10106 - Foundation Sprint",
+  "property_fields": [
+    {
+      "id": 62,
+      "name": "Created At",
+      "type": "text",
+      "value": "2025-08-27T19:27:29.568-0500"
+    },
+    {
+      "id": 63,
+      "name": "Reporter",
+      "type": "text",
+      "value": "Benjamin Sivoravong"
+    }
+  ],
+  "content_fields": [
+    {
+      "id": 118,
+      "name": "Summary",
+      "type": "text",
+      "value": "Foundation Sprint"
+    },
+    {
+      "id": 119,
+      "name": "Priority",
+      "type": "text",
+      "value": "Medium"
+    },
+    {
+      "id": 120,
+      "name": "Status",
+      "type": "text",
+      "value": "To Do"
+    },
+    {
+      "id": 121,
+      "name": "Description",
+      "type": "text",
+      "value": ""
+    }
+  ]
+}

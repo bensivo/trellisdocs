@@ -12,9 +12,14 @@ export function LoginWrapper(props: PropsWithChildren) {
         return <div>Loading...</div>;
     }
 
-    if (auth.isAuthenticated) {
-        return props.children;
-    } else {
-        return <Navigate to="/login"/>
-    }
+    // Commented out for local develpment
+    // 
+    // if (auth.isAuthenticated) {
+    //     return props.children;
+    // } else {
+    //     return <Navigate to="/login"/>
+    // }
+
+    // Skip login in local development
+    return props.children;
 }

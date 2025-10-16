@@ -1,9 +1,15 @@
-
+import { useAtom } from 'jotai';
 import { NavbarComponent } from '../../components/navbar/navbar';
+import { actions, atoms } from '../../store/store';
 
 import './search-page.less';
 
 export function SearchPage() {
+    const [documents] = useAtom(atoms.documents);
+    const [activeDocumentId] = useAtom(atoms.activeDocumentId);
+    const [activeDocument] = useAtom(atoms.activeDocument);
+    const [, setActiveDocumentId] = useAtom(actions.setActiveDocumentId);
+
     return (
         <div className="search-page">
             <div className="layout-lr-container">
@@ -24,7 +30,7 @@ export function SearchPage() {
                                         <option>Baz</option>
                                     </select>
                                 ))}
-                                <button className="add-field-btn">Add <i className="ri-add-line"/></button>
+                                <button className="add-field-btn">Add <i className="ri-add-line" /></button>
                             </div>
                             <div className="table-container">
                                 <table className="document-table">
@@ -36,11 +42,13 @@ export function SearchPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {[...Array(10)].map((_, i) => (
-                                            <tr onClick={() => {console.log('Click!')}}>
-                                                <td><span>Document Title</span></td>
-                                                <td><span>Jira Story</span></td>
-                                                <td><span>1970-01-01</span></td>
+                                        {documents.map((document, i) => (
+                                            <tr className={activeDocumentId > 0 && document.id === activeDocumentId ? 'active' : undefined}
+                                                onClick={() => { setActiveDocumentId(document.id) }}
+                                            >
+                                                <td><span>{document.name}</span></td>
+                                                <td><span>TODO</span></td>
+                                                <td><span>TODO</span></td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -49,26 +57,46 @@ export function SearchPage() {
                         </div>
                         <div className="content-separator"></div>
                         <div className="content-right">
-                            <h3 className="document-preview-title">Meeting with Alice</h3>
-                            <div className="document-properties-container">
-                                <div className="section-header">Properties</div>
-                                <div className="property-fields-container">
-                                    <label>Date</label>
-                                    <span>1980-01-01</span>
-                                    <label>Project</label>
-                                    <span>2026 Budget Planning</span>
-                                </div>
-                            </div>
-                            <hr></hr>
-                            <div className="document-content-container">
-                                <div className="section-header">Content</div>
-                                <div className="property-fields-container">
-                                    <label>Date</label>
-                                    <span>1980-01-01</span>
-                                    <label>Project</label>
-                                    <span>2026 Budget Planning</span>
-                                </div>
-                            </div>
+                            {activeDocument ?
+                                (
+                                    <>
+                                        <h3 className="document-preview-title">{activeDocument.name}</h3>
+                                        <div className="document-properties-container">
+                                            <div className="section-header">Properties</div>
+                                            <div className="property-fields-container">
+                                                {
+                                                    activeDocument.property_fields.map(field => (
+                                                        <>
+                                                            <label>{field.name}</label>
+                                                            <span>{field.value}</span>
+                                                        </>
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
+                                        <hr></hr>
+                                        <div className="document-content-container">
+                                            <div className="section-header">Content</div>
+                                            <div className="property-fields-container">
+                                                {
+                                                    activeDocument.content_fields.map(field => (
+                                                        <>
+                                                            <label>{field.name}</label>
+                                                            <span>{field.value}</span>
+                                                        </>
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                                :
+                                (
+                                    <div className="document-placeholder">
+                                        <p>Select a document</p>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

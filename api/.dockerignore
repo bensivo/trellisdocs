@@ -1,0 +1,5 @@
+docker-compose.yml
+.claude
+.pytest_cache
+.venv
+.vscode

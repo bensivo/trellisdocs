@@ -11,10 +11,9 @@ async def lifespan(app: FastAPI):
     await initialize_dependencies()
     yield
 
+app = FastAPI(lifespan=lifespan)
+app.include_router(health_router, prefix="/api")
+app.include_router(document_router, prefix="/api")
 
 if __name__ == "__main__":
-    app = FastAPI(lifespan=lifespan)
-    app.include_router(health_router, prefix="/api")
-    app.include_router(document_router, prefix="/api")
-
     uvicorn.run(app, host="0.0.0.0", port=8000)
