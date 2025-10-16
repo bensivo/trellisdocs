@@ -1,0 +1,112 @@
+@import '../../styles.less';
+
+.select-integration-page {
+    background-color: @bg-01;
+
+    * {
+        font-family: sans-serif;
+    }
+
+    .layout-right {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .select-integration-page-content {
+        width: 80%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .page-title {
+        color: @text-01;
+        font-size: 32px;
+        font-weight: 600;
+        margin: 0 0 16px 0;
+        margin-bottom: 50px;
+    }
+
+    .page-subtitle {
+        color: @text-01;
+        font-size: 16px;
+        margin: 0;
+        opacity: 0.8;
+    }
+
+    .integration-sources-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .integration-source-card {
+        background-color: @bg-02;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: 2px solid transparent;
+
+        &:hover {
+            background-color: lighten(@bg-02, 3%);
+            border-color: @accent;
+            transform: translateY(-2px);
+        }
+    }
+
+    .card-icon {
+        margin-bottom: 16px;
+    }
+
+    .icon-placeholder {
+        width: 48px;
+        height: 48px;
+        background-color: @text-01;
+        border-radius: 8px;
+    }
+
+    .card-content {
+        width: 100%;
+    }
+
+    .source-name {
+        color: @text-01;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 8px 0;
+    }
+
+    .source-description {
+        color: @text-01;
+        font-size: 14px;
+        margin: 0;
+        opacity: 0.8;
+        line-height: 1.4;
+    }
+
+    @media (max-width: 600px) {
+        .integration-sources-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .select-integration-page-content {
+            width: 95%;
+        }
+    }
+}

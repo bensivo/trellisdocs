@@ -15,7 +15,7 @@ export function NavbarComponent() {
 			<div className="icons-container">
 				<img 
 					className="logo" 
-					src="trellis-logo-06.svg"
+					src="/trellis-logo-06.svg"
 					onClick={() => navigate("/")}
 				/>
 
@@ -30,7 +30,9 @@ export function NavbarComponent() {
 					className="ri-file-copy-2-line icon"
 					onClick={() => navigate("/template")}
 				/>
-				<i className="ri-shapes-line icon"></i>
+				<i className="ri-shapes-line icon"
+					onClick={() => navigate("/integrations")}
+				></i>
 			</div>
 			<div className="logout-container">
 				<button onClick={() => signoutRedirect()}>
