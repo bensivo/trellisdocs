@@ -9,8 +9,15 @@ Provides solutions for:
 
 # Running the Test Suite
 This launches the Cypress App so you can choose end-to-end (E2E) or component testing (CT) and start writing tests. I installed it at the root of our project because it has both UI and API testing capabilities. 
+
+In one terminal run this in the root of the project:
 ```bash
 npx cypress open
+```
+
+In another terminal run this in webapp folder:
+```bash
+npm run dev
 ```
 
 # Config Files
