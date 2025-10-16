@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { NavbarComponent } from "../../components/navbar/navbar";
 import "./select-integration-page.less";
 
@@ -9,6 +10,12 @@ type IntegrationSource = {
 };
 
 export function SelectIntegrationPage() {
+  const navigate = useNavigate();
+  
+  const handleIntegrationSelect = (integrationName: string) => {
+    navigate(`/integrations/configure/${integrationName.toLowerCase()}`);
+  };
+
   const integrationSources: IntegrationSource[] = [
     {
       id: 1,
@@ -58,7 +65,11 @@ export function SelectIntegrationPage() {
             </div>
             <div className="integration-sources-grid">
               {integrationSources.map((source) => (
-                <div key={source.id} className="integration-source-card">
+                <div 
+                  key={source.id} 
+                  className="integration-source-card"
+                  onClick={() => handleIntegrationSelect(source.name)}
+                >
                   <div className="card-icon">
                     <div className="icon-placeholder"></div>
                   </div>

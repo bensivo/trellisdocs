@@ -1,0 +1,281 @@
+@import '../../styles.less';
+
+.new-integration-page {
+    background-color: @bg-01;
+
+    * {
+        font-family: sans-serif;
+    }
+
+    .layout-right {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        height: 100vh;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .new-integration-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .content-split {
+        display: flex;
+        gap: 30px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    // Left Half - Configuration Section
+    .config-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-right: 15px;
+        height: 100%;
+    }
+
+    .breadcrumb {
+        margin-bottom: 15px;
+    }
+
+    .breadcrumb-text {
+        color: @text-01;
+        font-size: 18px;
+        font-weight: 600;
+        opacity: 1;
+    }
+
+    .config-title {
+        margin-bottom: 20px;
+
+        h2 {
+            color: @text-01;
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.3;
+            opacity: 0.8;
+        }
+    }
+
+    .config-form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .field-label {
+        color: @text-01;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+        min-width: 100px;
+        text-align: left;
+    }
+
+    .field-input {
+        background-color: @bg-02;
+        border: 1px solid @border;
+        border-radius: 4px;
+        padding: 12px;
+        color: @text-01;
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+        flex: 1;
+
+        &:focus {
+            outline: none;
+            border-color: @accent;
+        }
+
+        &::placeholder {
+            color: @text-01;
+            opacity: 0.5;
+        }
+    }
+
+    .field-textarea {
+        resize: vertical;
+        min-height: 80px;
+        font-family: inherit;
+    }
+
+    select.field-input {
+        cursor: pointer;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-start;
+        margin-top: auto;
+        padding-top: 15px;
+        flex-shrink: 0;
+    }
+
+    .button {
+        background-color: @accent;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 20px;
+        color: @text-01;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: lighten(@accent, 10%);
+            transform: translateY(-1px);
+        }
+
+        &.button-secondary {
+            background-color: @bg-02;
+            border: 1px solid @border;
+
+            &:hover {
+                background-color: lighten(@bg-02, 5%);
+                border-color: @accent;
+            }
+        }
+
+        &.button-primary {
+            background-color: @accent;
+        }
+    }
+
+    // Right Half - Preview Section
+    .preview-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        border-left: 1px solid @border;
+        height: 100%;
+    }
+
+    .preview-header {
+        margin-bottom: 15px;
+        flex-shrink: 0;
+
+        h2 {
+            color: @text-01;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+
+    .preview-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        flex: 1;
+    }
+
+    .preview-placeholder {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+        padding-top: 10px;
+
+        p {
+            color: @text-01;
+            font-size: 16px;
+            opacity: 0.7;
+            line-height: 1.5;
+            margin: 0;
+            max-width: 300px;
+        }
+    }
+
+    .preview-results {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .preview-item {
+        background-color: @bg-03;
+        padding: 16px;
+        border-radius: 6px;
+        border-left: 3px solid @accent;
+
+        h4 {
+            color: @text-01;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+        }
+
+        p {
+            color: @text-01;
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+            line-height: 1.4;
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 1024px) {
+        .content-split {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .config-section,
+        .preview-section {
+            flex: none;
+            padding: 0;
+        }
+
+        .preview-section {
+            border-left: none;
+            border-top: 1px solid @border;
+            padding-top: 20px;
+        }
+
+        .layout-right {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .layout-right {
+            padding: 15px;
+        }
+
+        .config-title h2 {
+            font-size: 20px;
+        }
+
+        .preview-header h2 {
+            font-size: 20px;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+        }
+
+        .button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
