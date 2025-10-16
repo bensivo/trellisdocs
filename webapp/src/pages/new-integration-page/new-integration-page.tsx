@@ -119,13 +119,51 @@ export function NewIntegrationPage() {
                     </div>
                   ) : (
                     <div className="preview-results">
-                      <div className="preview-item">
-                        <h4>Sample Document 1</h4>
-                        <p>This is a preview of how your documents will appear...</p>
+                      <div className="preview-description">
+                        <p>Click "Preview" on the left-hand pane to see a preview of the imported documents</p>
                       </div>
-                      <div className="preview-item">
-                        <h4>Sample Document 2</h4>
-                        <p>Another example document from your {integrationType} integration...</p>
+                      <div className="preview-table-container">
+                        <table className="preview-table">
+                          <thead>
+                            <tr>
+                              <th>Title</th>
+                              <th>Type</th>
+                              <th>Created At</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>PROJ-123: Implement user authentication</td>
+                              <td>Jira Story</td>
+                              <td>2024-10-15</td>
+                            </tr>
+                            <tr>
+                              <td>PROJ-124: Fix login bug</td>
+                              <td>Jira Bug</td>
+                              <td>2024-10-14</td>
+                            </tr>
+                            <tr>
+                              <td>PROJ-125: Update documentation</td>
+                              <td>Jira Task</td>
+                              <td>2024-10-13</td>
+                            </tr>
+                            <tr>
+                              <td>PROJ-126: Performance optimization</td>
+                              <td>Jira Story</td>
+                              <td>2024-10-12</td>
+                            </tr>
+                            <tr>
+                              <td>PROJ-127: Database migration</td>
+                              <td>Jira Epic</td>
+                              <td>2024-10-11</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="create-integration-container">
+                        <button className="button button-primary create-integration-btn">
+                          Create Integration Pipeline +
+                        </button>
                       </div>
                     </div>
                   )}
