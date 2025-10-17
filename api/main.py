@@ -12,11 +12,10 @@ async def lifespan(app: FastAPI):
     await initialize_dependencies()
     yield
 
-if __name__ == "__main__":
-    app = FastAPI(lifespan=lifespan)
-    app.include_router(health_router, prefix="/api")
-    app.include_router(document_router, prefix="/api")
-    app.include_router(pipeline_router, prefix="/api")
+app = FastAPI(lifespan=lifespan)
+app.include_router(health_router, prefix="/api")
+app.include_router(document_router, prefix="/api")
+app.include_router(pipeline_router, prefix="/api")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

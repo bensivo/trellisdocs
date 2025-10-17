@@ -18,10 +18,10 @@ export const atoms = {
 
 // Define all actions, atoms that do nothing but update other atoms
 export const actions = {
-    setDocuments: createAction((get, set, documents: Document[]) => {
+    setDocuments: createAction((_, set, documents: Document[]) => {
         set(atoms.documents, documents);
     }),
-    setActiveDocumentId: createAction((get, set, id: number) => {
+    setActiveDocumentId: createAction((_, set, id: number) => {
         set(atoms.activeDocumentId, id);
     })
 }

@@ -42,7 +42,7 @@ export function SearchPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {documents.map((document, i) => (
+                                        {documents.map((document, _) => (
                                             <tr className={activeDocumentId > 0 && document.id === activeDocumentId ? 'active' : undefined}
                                                 onClick={() => { setActiveDocumentId(document.id) }}
                                             >

@@ -1,9 +1,12 @@
-FROM python:3.13-bookworm
-WORKDIR /api
+FROM python:3.11-slim
 
-RUN pip install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
+WORKDIR /app
 COPY . .
-RUN uv sync --frozen
-EXPOSE 8000
-CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
+
+RUN uv sync --frozen --no-dev
+
+# TODO: Adjust num of workers for production
+CMD ["uv", "run", "gunicorn", "main:app", "-k", "uvicorn.workers.UvicornWorker", \
+     "--bind", "0.0.0.0:8000", "--workers", "1"]

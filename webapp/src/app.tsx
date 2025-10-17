@@ -7,7 +7,7 @@ import { TemplateBrowserPage } from './pages/template-browser-page/template-brow
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
 
 import "remixicon/fonts/remixicon.css";
-import './App.less';
+import './app.less';
 import { IntegrationPipelinesPage } from "./pages/integration-pipelines-page/integration-pipelines-page";
 import { SelectIntegrationPage } from "./pages/select-integration-page/select-integration-page";
 import { NewIntegrationPage } from "./pages/new-integration-page/new-integration-page";
