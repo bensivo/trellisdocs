@@ -60,7 +60,10 @@ export function DocumentsPage() {
                             {activeDocument ?
                                 (
                                     <>
-                                        <h3 className="document-preview-title">{activeDocument.name}</h3>
+                                        <a className="document-preview-title" href={`/documents/${activeDocument.id}`}>
+                                            {activeDocument.name}
+                                            <i className="ri-share-box-line"></i>
+                                        </a>
                                         <div className="document-properties-container">
                                             <div className="section-header">Properties</div>
                                             <div className="property-fields-container">

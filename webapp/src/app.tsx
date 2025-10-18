@@ -3,6 +3,7 @@ import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
 import { HomePage } from './pages/homepage/homepage';
 import { LoginPage } from './pages/loginpage/loginpage';
 import { DocumentsPage } from "./pages/documents-page/documents-page";
+import { DocumentPage } from "./pages/document-page/document-page";
 import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page';
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/documents" element={<DocumentsPage/>} />
+                <Route path="/documents/:document-id" element={<DocumentPage/>} />
                 <Route path="/integrations" element={<LoginWrapper><IntegrationPipelinesPage/></LoginWrapper>} />
                 <Route path="/integrations/new" element={<LoginWrapper><SelectIntegrationPage/></LoginWrapper>} />
                 <Route path="/integrations/configure/:type" element={<LoginWrapper><NewIntegrationPage/></LoginWrapper>} />
