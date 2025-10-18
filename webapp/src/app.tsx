@@ -18,7 +18,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
                 <Route path="/login" element={<LoginPage/>} />
-                <Route path="/search" element={<DocumentsPage/>} />
+                <Route path="/documents" element={<DocumentsPage/>} />
                 <Route path="/integrations" element={<LoginWrapper><IntegrationPipelinesPage/></LoginWrapper>} />
                 <Route path="/integrations/new" element={<LoginWrapper><SelectIntegrationPage/></LoginWrapper>} />
                 <Route path="/integrations/configure/:type" element={<LoginWrapper><NewIntegrationPage/></LoginWrapper>} />
