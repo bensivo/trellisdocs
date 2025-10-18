@@ -23,6 +23,9 @@ export const actions = {
     }),
     setActiveDocumentId: createAction((_, set, id: number) => {
         set(atoms.activeDocumentId, id);
+    }),
+    updateDocument: createAction((_, set, id: number, document: Document) => {
+        set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? document : doc)));
     })
 }
 

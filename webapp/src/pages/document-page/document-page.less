@@ -82,10 +82,42 @@
         padding: 12px;
         display: block;
         width: 100%;
+
+        &:focus {
+            outline: none;
+            border-bottom: solid 2px @accent;
+        }
     }
 
     hr {
         border-top: solid 1px @border;
         margin: 16px 64px;
+    }
+
+    .save-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: solid 1px @border;
+    }
+
+    .save-button {
+        color: @text-01;
+        background-color: @accent;
+        padding: 12px 24px;
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+
+        &:hover:not(:disabled) {
+            cursor: pointer;
+            background-color: lighten(@accent, 5%);
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     }
 }
