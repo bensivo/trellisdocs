@@ -2,9 +2,9 @@ import { useAtom } from 'jotai';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import { actions, atoms } from '../../store/store';
 
-import './search-page.less';
+import './documents-page.less';
 
-export function SearchPage() {
+export function DocumentsPage() {
     const [documents] = useAtom(atoms.documents);
     const [activeDocumentId] = useAtom(atoms.activeDocumentId);
     const [activeDocument] = useAtom(atoms.activeDocument);

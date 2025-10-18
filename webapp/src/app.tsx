@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
 import { HomePage } from './pages/homepage/homepage';
 import { LoginPage } from './pages/loginpage/loginpage';
-import { SearchPage } from "./pages/search-page/search-page";
+import { DocumentsPage } from "./pages/documents-page/documents-page";
 import { TemplateBrowserPage } from './pages/template-browser-page/template-browser-page';
 import { TemplateEditorPage } from './pages/template-editor-page/template-editor-page';
 
@@ -18,7 +18,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
                 <Route path="/login" element={<LoginPage/>} />
-                <Route path="/search" element={<SearchPage/>} />
+                <Route path="/search" element={<DocumentsPage/>} />
                 <Route path="/integrations" element={<LoginWrapper><IntegrationPipelinesPage/></LoginWrapper>} />
                 <Route path="/integrations/new" element={<LoginWrapper><SelectIntegrationPage/></LoginWrapper>} />
                 <Route path="/integrations/configure/:type" element={<LoginWrapper><NewIntegrationPage/></LoginWrapper>} />
