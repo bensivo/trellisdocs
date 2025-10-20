@@ -1,30 +1,21 @@
-import { useState } from "react";
+import { useAtom } from 'jotai';
 import { useParams } from "react-router-dom";
 import { NavbarComponent } from "../../components/navbar/navbar";
+import { actions, atoms } from '../../store/store';
+import type { IntegrationConfig } from '../../store/models';
 import "./new-integration-page.less";
-
-type IntegrationConfig = {
-  apiKey: string;
-  frequency: string;
-  jqlQuery: string;
-};
 
 export function NewIntegrationPage() {
   const { type } = useParams<{ type: string }>();
   const integrationType = type || "Jira";
-  const [config, setConfig] = useState<IntegrationConfig>({
-    apiKey: "",
-    frequency: "Daily",
-    jqlQuery: "",
-  });
-
-  const [showPreview, setShowPreview] = useState(false);
+  const [config] = useAtom(atoms.integrationConfig);
+  const [showPreview] = useAtom(atoms.showPreview);
+  const [previewDocuments] = useAtom(atoms.previewDocuments);
+  const [, updateConfig] = useAtom(actions.updateIntegrationConfig);
+  const [, setShowPreview] = useAtom(actions.setShowPreview);
 
   const handleInputChange = (field: keyof IntegrationConfig, value: string) => {
-    setConfig(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    updateConfig(field, value);
   };
 
   const handlePreview = () => {
@@ -132,31 +123,13 @@ export function NewIntegrationPage() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>PROJ-123: Implement user authentication</td>
-                              <td>Jira Story</td>
-                              <td>2024-10-15</td>
-                            </tr>
-                            <tr>
-                              <td>PROJ-124: Fix login bug</td>
-                              <td>Jira Bug</td>
-                              <td>2024-10-14</td>
-                            </tr>
-                            <tr>
-                              <td>PROJ-125: Update documentation</td>
-                              <td>Jira Task</td>
-                              <td>2024-10-13</td>
-                            </tr>
-                            <tr>
-                              <td>PROJ-126: Performance optimization</td>
-                              <td>Jira Story</td>
-                              <td>2024-10-12</td>
-                            </tr>
-                            <tr>
-                              <td>PROJ-127: Database migration</td>
-                              <td>Jira Epic</td>
-                              <td>2024-10-11</td>
-                            </tr>
+                            {previewDocuments.map((doc, index) => (
+                              <tr key={index}>
+                                <td>{doc.title}</td>
+                                <td>{doc.type}</td>
+                                <td>{doc.createdAt}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
