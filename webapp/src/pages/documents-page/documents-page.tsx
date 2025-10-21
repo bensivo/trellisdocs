@@ -4,12 +4,18 @@ import { NavbarComponent } from '../../components/navbar/navbar';
 import { actions, atoms } from '../../store/store';
 
 import './documents-page.less';
+import { useEffect } from 'react';
 
 export function DocumentsPage() {
     const [documents] = useAtom(atoms.documents);
     const [activeDocumentId] = useAtom(atoms.activeDocumentId);
     const [activeDocument] = useAtom(atoms.activeDocument);
     const [, setActiveDocumentId] = useAtom(actions.setActiveDocumentId);
+    const [, fetchDocuments] = useAtom(actions.fetchDocuments);
+    
+    useEffect(() => {
+        fetchDocuments();
+    }, [])
 
     return (
         <div className="search-page">
@@ -23,6 +29,13 @@ export function DocumentsPage() {
                     </div>
                     <div className="content-container">
                         <div className="content-left">
+                            <div className="refresh-container">
+                                <i className="ri-refresh-line refresh-icon"
+                                   onClick={() => { 
+                                    fetchDocuments();
+                                   }}
+                                ></i>
+                            </div>
                             <div className="filters-container">
                                 {[...Array(4)].map((_, i) => (
                                     <select key={i} className="filter" value="Filter">

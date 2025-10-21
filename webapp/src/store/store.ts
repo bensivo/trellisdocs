@@ -1,7 +1,8 @@
 import type { Getter, Setter } from 'jotai';
 import { atom, createStore } from 'jotai';
 import type { Document } from './models';
-import { mockDocuments } from './mock-data';
+// import { mockDocuments } from './mock-data';
+import axios from 'axios';
 
 // Define all atoms, the core data elements stored in the store
 // Atoms can either store values themselves, or be derived from other atoms
@@ -26,15 +27,20 @@ export const actions = {
     }),
     updateDocument: createAction((_, set, id: number, document: Document) => {
         set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? document : doc)));
-    })
+    }),
+    fetchDocuments: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/documents');
+        const documents: Document[] = res.data; // TODO: validate
+        set(atoms.documents, documents);
+    }),
 }
 
 export function initializeStore() {
     const store = createStore();
 
     // Provide any initial values
-    // TODO: this is where we'd load state from localstorage, if necessary
-    store.set(atoms.documents, mockDocuments)
+    // store.set(atoms.documents, mockDocuments)
+    store.set(atoms.documents, [])
 
     return store;
 }
