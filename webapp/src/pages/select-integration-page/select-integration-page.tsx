@@ -1,12 +1,18 @@
 import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { NavbarComponent } from "../../components/navbar/navbar";
-import { atoms } from '../../store/store';
+import { atoms, actions } from '../../store/store';
 import "./select-integration-page.less";
 
 export function SelectIntegrationPage() {
   const navigate = useNavigate();
   const [integrationSources] = useAtom(atoms.integrationSources);
+  const [, fetchIntegrationSources] = useAtom(actions.fetchIntegrationSources);
+
+  useEffect(() => {
+    fetchIntegrationSources();
+  }, [fetchIntegrationSources]);
   
   const handleIntegrationSelect = (integrationName: string) => {
     navigate(`/integrations/configure/${integrationName.toLowerCase()}`);

@@ -63,6 +63,21 @@ export const actions = {
         const documents: Document[] = res.data; // TODO: validate
         set(atoms.documents, documents);
     }),
+    fetchPipelines: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/pipelines');
+        const pipelines: Pipeline[] = res.data; // TODO: validate
+        set(atoms.pipelines, pipelines);
+    }),
+    fetchIntegrationSources: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/integration-sources');
+        const sources: IntegrationSource[] = res.data; // TODO: validate
+        set(atoms.integrationSources, sources);
+    }),
+    fetchPreviewDocuments: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/preview-documents');
+        const previewDocuments: PreviewDocument[] = res.data; // TODO: validate
+        set(atoms.previewDocuments, previewDocuments);
+    }),
 }
 
 export function initializeStore() {
@@ -70,12 +85,11 @@ export function initializeStore() {
 
     // Provide any initial values
     // TODO: this is where we'd load state from localstorage, if necessary
-    store.set(atoms.documents, mockDocuments);
-    store.set(atoms.pipelines, mockPipelines);
-    store.set(atoms.integrationSources, mockIntegrationSources);
-    store.set(atoms.previewDocuments, mockPreviewDocuments);
+    store.set(atoms.pipelines, []);
+    store.set(atoms.integrationSources, []);
+    store.set(atoms.previewDocuments, []);
     // store.set(atoms.documents, mockDocuments)
-    store.set(atoms.documents, [])
+    store.set(atoms.documents, []);
 
     return store;
 }

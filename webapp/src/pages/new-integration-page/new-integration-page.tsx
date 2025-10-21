@@ -13,12 +13,14 @@ export function NewIntegrationPage() {
   const [previewDocuments] = useAtom(atoms.previewDocuments);
   const [, updateConfig] = useAtom(actions.updateIntegrationConfig);
   const [, setShowPreview] = useAtom(actions.setShowPreview);
+  const [, fetchPreviewDocuments] = useAtom(actions.fetchPreviewDocuments);
 
   const handleInputChange = (field: keyof IntegrationConfig, value: string) => {
     updateConfig(field, value);
   };
 
-  const handlePreview = () => {
+  const handlePreview = async () => {
+    await fetchPreviewDocuments();
     setShowPreview(true);
   };
 

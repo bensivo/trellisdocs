@@ -1,12 +1,18 @@
 import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { NavbarComponent } from "../../components/navbar/navbar";
 import { useNavigate } from "react-router-dom";
-import { atoms } from '../../store/store';
+import { atoms, actions } from '../../store/store';
 import "./integration-pipelines-page.less";
 
 export function IntegrationPipelinesPage() {
   const navigate = useNavigate();
   const [pipelines] = useAtom(atoms.pipelines);
+  const [, fetchPipelines] = useAtom(actions.fetchPipelines);
+
+  useEffect(() => {
+    fetchPipelines();
+  }, [fetchPipelines]);
 
   return (
     <div className="integration-pipelines-page">
