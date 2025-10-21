@@ -1,7 +1,8 @@
 import type { Getter, Setter } from 'jotai';
 import { atom, createStore } from 'jotai';
 import type { Document, Pipeline, IntegrationSource, IntegrationConfig, PreviewDocument } from './models';
-import { mockDocuments, mockPipelines, mockIntegrationSources, mockPreviewDocuments } from './mock-data';
+// import { mockDocuments, mockPipelines, mockIntegrationSources, mockPreviewDocuments } from './mock-data';
+import axios from 'axios';
 
 // Define all atoms, the core data elements stored in the store
 // Atoms can either store values themselves, or be derived from other atoms
@@ -28,10 +29,10 @@ export const atoms = {
 
 // Define all actions, atoms that do nothing but update other atoms
 export const actions = {
-    setDocuments: createAction((get, set, documents: Document[]) => {
+    setDocuments: createAction((_, set, documents: Document[]) => {
         set(atoms.documents, documents);
     }),
-    setActiveDocumentId: createAction((get, set, id: number) => {
+    setActiveDocumentId: createAction((_, set, id: number) => {
         set(atoms.activeDocumentId, id);
     }),
     // Integration-related actions
@@ -53,7 +54,15 @@ export const actions = {
     }),
     setShowPreview: createAction((get, set, show: boolean) => {
         set(atoms.showPreview, show);
-    })
+    }),
+    updateDocument: createAction((_, set, id: number, document: Document) => {
+        set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? document : doc)));
+    }),
+    fetchDocuments: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/documents');
+        const documents: Document[] = res.data; // TODO: validate
+        set(atoms.documents, documents);
+    }),
 }
 
 export function initializeStore() {
@@ -65,6 +74,8 @@ export function initializeStore() {
     store.set(atoms.pipelines, mockPipelines);
     store.set(atoms.integrationSources, mockIntegrationSources);
     store.set(atoms.previewDocuments, mockPreviewDocuments);
+    // store.set(atoms.documents, mockDocuments)
+    store.set(atoms.documents, [])
 
     return store;
 }

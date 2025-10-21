@@ -40,6 +40,20 @@
         height: 100%;
         flex: 1;
         margin: 0px 16px;
+        position: relative;
+    }
+
+    .refresh-container {
+        position: absolute;
+        right: 0;
+
+        i {
+            cursor: pointer;
+            color: @text-01;
+        }
+        i:hover {
+            color: @accent;
+        }
     }
 
     .content-separator {
@@ -115,7 +129,7 @@
         }
 
         tbody tr span {
-            padding: 4px 8px;
+            padding: 8px;
             display: block;
         }
 
@@ -141,6 +155,21 @@
 
     .document-preview-title {
         color: @text-01;
+        font-size: 20px;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 16px;
+
+        i {
+            margin-left: 8px;
+            color: @text-01;
+
+        }
+
+        cursor: pointer;
+        &:hover {
+            color: @text-01;
+        }
     }
 
     .section-header {

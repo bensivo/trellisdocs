@@ -23,7 +23,7 @@ def fetch_jira_tickets(project_key: str, fields: list[str]):
     next_page_token = None
     while True:
         response = requests.post(
-            url = f'https://bensivo.atlassian.net/rest/api/3/search/jql',
+            url = f'{jira_base_url}/rest/api/3/search/jql',
             headers={
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -86,6 +86,11 @@ if __name__ == '__main__':
                 'name': f"{id} - {summary}",
                 'property_fields': [
                     {
+                        'name': 'Type',
+                        'type': 'text',
+                        'value': 'Jira Ticket'
+                    },
+                    {
                         'name': 'Created At',
                         'type': 'text',
                         'value': created
@@ -101,6 +106,11 @@ if __name__ == '__main__':
                         'name': 'Summary',
                         'type': 'text',
                         'value': summary
+                    },
+                    {
+                        'name': 'Link',
+                        'type': 'text',
+                        'value': f"{jira_base_url}/browse/{id}"
                     },
                     {
                         'name': 'Priority',

@@ -25,6 +25,11 @@ The API will be available at `http://localhost:8000`
 - **GET** `/api/documents/{document_id}` - Get a document by ID
 - **PATCH** `/api/documents/{document_id}` - Update a document
 - **DELETE** `/api/documents/{document_id}` - Delete a document
+- **POST** `/api/pipelines` - Create a pipeline
+- **GET** `/api/pipelines` - List all pipelines
+- **GET** `/api/pipelines/{pipeline_id}` - Get a pipeline by ID
+- **PATCH** `/api/pipelines/{pipeline_id}` - Update a pipeline
+- **DELETE** `/api/pipelines/{document_id}` - Delete a pipeline
 
 ## Testing
 E2E Testing for this api is available in the `api-e2e` module. It uses Jest for e2e testing for several reasons:

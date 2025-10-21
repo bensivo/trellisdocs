@@ -1,14 +1,21 @@
 import { useAtom } from 'jotai';
+import { Link } from 'react-router-dom';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import { actions, atoms } from '../../store/store';
 
-import './search-page.less';
+import './documents-page.less';
+import { useEffect } from 'react';
 
-export function SearchPage() {
+export function DocumentsPage() {
     const [documents] = useAtom(atoms.documents);
     const [activeDocumentId] = useAtom(atoms.activeDocumentId);
     const [activeDocument] = useAtom(atoms.activeDocument);
     const [, setActiveDocumentId] = useAtom(actions.setActiveDocumentId);
+    const [, fetchDocuments] = useAtom(actions.fetchDocuments);
+    
+    useEffect(() => {
+        fetchDocuments();
+    }, [])
 
     return (
         <div className="search-page">
@@ -22,6 +29,13 @@ export function SearchPage() {
                     </div>
                     <div className="content-container">
                         <div className="content-left">
+                            <div className="refresh-container">
+                                <i className="ri-refresh-line refresh-icon"
+                                   onClick={() => { 
+                                    fetchDocuments();
+                                   }}
+                                ></i>
+                            </div>
                             <div className="filters-container">
                                 {[...Array(4)].map((_, i) => (
                                     <select key={i} className="filter" value="Filter">
@@ -42,7 +56,7 @@ export function SearchPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {documents.map((document, i) => (
+                                        {documents.map((document, _) => (
                                             <tr className={activeDocumentId > 0 && document.id === activeDocumentId ? 'active' : undefined}
                                                 onClick={() => { setActiveDocumentId(document.id) }}
                                             >
@@ -60,7 +74,10 @@ export function SearchPage() {
                             {activeDocument ?
                                 (
                                     <>
-                                        <h3 className="document-preview-title">{activeDocument.name}</h3>
+                                        <Link className="document-preview-title" to={`/documents/${activeDocument.id}`}>
+                                            {activeDocument.name}
+                                            <i className="ri-share-box-line"></i>
+                                        </Link>
                                         <div className="document-properties-container">
                                             <div className="section-header">Properties</div>
                                             <div className="property-fields-container">

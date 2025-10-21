@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from routers.health_routes import router as health_router
 from routers.document_routes import router as document_router
+from routers.pipeline_routes import router as pipeline_router
 from di import initialize_dependencies
 import uvicorn
 
@@ -14,6 +16,17 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 app.include_router(health_router, prefix="/api")
 app.include_router(document_router, prefix="/api")
+app.include_router(pipeline_router, prefix="/api")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173"
+    ],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
