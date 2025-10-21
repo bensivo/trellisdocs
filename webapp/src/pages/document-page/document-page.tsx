@@ -6,6 +6,7 @@ import { actions, atoms } from '../../store/store';
 import type { Document } from '../../store/models';
 
 import './document-page.less';
+import { EditableHeader } from '../../components/editable-header/editable-header';
 
 export function DocumentPage() {
     const { 'document-id': documentId } = useParams();
@@ -58,15 +59,12 @@ export function DocumentPage() {
     };
 
     const handleSave = () => {
-
         if (!editedDocument) return;
+
         // TODO: Implement save to store/API
         console.log('Saving document:', editedDocument);
         setHasChanges(false);
-
         updateDocument(editedDocument.id, editedDocument);
-
-
     };
 
     return (
@@ -85,7 +83,13 @@ export function DocumentPage() {
                     <div className="document-content-wrapper">
                         {editedDocument ? (
                             <>
-                                <h3 className="document-preview-title">{editedDocument.name}</h3>
+                                <EditableHeader
+                                    value={editedDocument.name}
+                                    onChange={(value) => setEditedDocument({
+                                        ...editedDocument, name: value
+                                    })}
+                                />
+                               
                                 <div className="document-properties-container">
                                     <div className="section-header">Properties</div>
                                     <div className="property-fields-container">
@@ -104,7 +108,9 @@ export function DocumentPage() {
                                         }
                                     </div>
                                 </div>
+
                                 <hr></hr>
+
                                 <div className="document-content-container">
                                     <div className="section-header">Content</div>
                                     <div className="property-fields-container">

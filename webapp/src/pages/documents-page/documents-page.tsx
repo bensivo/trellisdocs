@@ -1,4 +1,5 @@
 import { useAtom } from 'jotai';
+import { Link } from 'react-router-dom';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import { actions, atoms } from '../../store/store';
 
@@ -60,10 +61,10 @@ export function DocumentsPage() {
                             {activeDocument ?
                                 (
                                     <>
-                                        <a className="document-preview-title" href={`/documents/${activeDocument.id}`}>
+                                        <Link className="document-preview-title" to={`/documents/${activeDocument.id}`}>
                                             {activeDocument.name}
                                             <i className="ri-share-box-line"></i>
-                                        </a>
+                                        </Link>
                                         <div className="document-properties-container">
                                             <div className="section-header">Properties</div>
                                             <div className="property-fields-container">
