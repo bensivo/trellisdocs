@@ -43,7 +43,24 @@ migrations = [
         """,
         'down': """
             DROP TABLE IF EXISTS content_fields
-        """}
+        """
+    },
+    {
+        'name': '004_create_pipelines_table',
+        'up': """
+            CREATE TABLE pipelines (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                type TEXT NOT NULL,
+                cron_string TEXT NOT NULL,
+                configs TEXT,
+                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+            )
+        """,
+        'down': """
+            DROP TABLE IF EXISTS pipelines
+        """
+    }
 ]
 
 class DBService:

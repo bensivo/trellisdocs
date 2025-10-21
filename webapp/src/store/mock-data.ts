@@ -1,4 +1,4 @@
-import type { Document } from "./models";
+import type { Document, Pipeline, IntegrationSource, PreviewDocument } from "./models";
 
 export const mockDocuments: Document[] = [
     {
@@ -151,5 +151,146 @@ export const mockDocuments: Document[] = [
             { id: 230, name: "completion_rate", type: "number", value: 0.78 },
             { id: 231, name: "highlights", type: "text", value: "Engineering exceeded goals, sales lagging" }
         ]
+    }
+];
+
+export const mockPipelines: Pipeline[] = [
+    {
+        id: 1,
+        title: "Jira Integration",
+        description: "Sync issues and stories from Atlassian Jira",
+        color: "#0052CC",
+        status: "active",
+        lastSync: "2025-01-20T10:30:00Z"
+    },
+    {
+        id: 2,
+        title: "GitHub Integration",
+        description: "Import repositories and pull requests",
+        color: "#24292e",
+        status: "active",
+        lastSync: "2025-01-20T09:15:00Z"
+    },
+    {
+        id: 3,
+        title: "Slack Integration",
+        description: "Capture conversations and channel data",
+        color: "#4A154B",
+        status: "inactive",
+        lastSync: "2025-01-19T16:45:00Z"
+    },
+    {
+        id: 4,
+        title: "Confluence Integration",
+        description: "Import documentation and wiki pages",
+        color: "#172B4D",
+        status: "error",
+        lastSync: "2025-01-18T14:20:00Z"
+    },
+    {
+        id: 5,
+        title: "Linear Integration",
+        description: "Sync issues and project data",
+        color: "#5E6AD2",
+        status: "active",
+        lastSync: "2025-01-20T11:00:00Z"
+    },
+    {
+        id: 6,
+        title: "Notion Integration",
+        description: "Import pages and database records",
+        color: "#000000",
+        status: "inactive",
+        lastSync: "2025-01-17T13:30:00Z"
+    }
+];
+
+export const mockIntegrationSources: IntegrationSource[] = [
+    {
+        id: 1,
+        name: "Jira",
+        description: "Fetch from Atlassian Jira",
+        available: true
+    },
+    {
+        id: 2,
+        name: "GitHub",
+        description: "Import from GitHub repositories",
+        available: true
+    },
+    {
+        id: 3,
+        name: "Slack",
+        description: "Capture from Slack channels",
+        available: true
+    },
+    {
+        id: 4,
+        name: "Confluence",
+        description: "Import from Confluence pages",
+        available: true
+    },
+    {
+        id: 5,
+        name: "Linear",
+        description: "Sync from Linear issues",
+        available: true
+    },
+    {
+        id: 6,
+        name: "Notion",
+        description: "Import from Notion databases",
+        available: false
+    }
+];
+
+export const mockPreviewDocuments: PreviewDocument[] = [
+    {
+        title: "PROJ-123: Implement user authentication",
+        type: "Jira Story",
+        createdAt: "2024-10-15",
+        source: "jira"
+    },
+    {
+        title: "PROJ-124: Fix login bug",
+        type: "Jira Bug",
+        createdAt: "2024-10-14",
+        source: "jira"
+    },
+    {
+        title: "PROJ-125: Update documentation",
+        type: "Jira Task",
+        createdAt: "2024-10-13",
+        source: "jira"
+    },
+    {
+        title: "PROJ-126: Performance optimization",
+        type: "Jira Story",
+        createdAt: "2024-10-12",
+        source: "jira"
+    },
+    {
+        title: "PROJ-127: Database migration",
+        type: "Jira Epic",
+        createdAt: "2024-10-11",
+        source: "jira"
+    },
+    {
+        title: "Feature/auth-system",
+        type: "GitHub Pull Request",
+        createdAt: "2024-10-16",
+        source: "github"
+    },
+    {
+        title: "Fix: Memory leak in cache",
+        type: "GitHub Issue",
+        createdAt: "2024-10-14",
+        source: "github"
+    },
+    {
+        title: "Daily Standup Notes",
+        type: "Slack Message",
+        createdAt: "2024-10-15",
+        source: "slack"
     }
 ];

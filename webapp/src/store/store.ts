@@ -1,7 +1,7 @@
 import type { Getter, Setter } from 'jotai';
 import { atom, createStore } from 'jotai';
-import type { Document } from './models';
-// import { mockDocuments } from './mock-data';
+import type { Document, Pipeline, IntegrationSource, IntegrationConfig, PreviewDocument } from './models';
+// import { mockDocuments, mockPipelines, mockIntegrationSources, mockPreviewDocuments } from './mock-data';
 import axios from 'axios';
 
 // Define all atoms, the core data elements stored in the store
@@ -14,7 +14,17 @@ export const atoms = {
         const activeDocumentId: number = get(atoms.activeDocumentId);
 
         return documents.find(d => d.id === activeDocumentId) ?? null;
-    })
+    }),
+    // Integration-related atoms
+    pipelines: atom<Pipeline[]>([]),
+    integrationSources: atom<IntegrationSource[]>([]),
+    integrationConfig: atom<IntegrationConfig>({
+        apiKey: "",
+        frequency: "Daily",
+        jqlQuery: ""
+    }),
+    previewDocuments: atom<PreviewDocument[]>([]),
+    showPreview: atom<boolean>(false)
 }
 
 // Define all actions, atoms that do nothing but update other atoms
@@ -25,6 +35,26 @@ export const actions = {
     setActiveDocumentId: createAction((_, set, id: number) => {
         set(atoms.activeDocumentId, id);
     }),
+    // Integration-related actions
+    setPipelines: createAction((_, set, pipelines: Pipeline[]) => {
+        set(atoms.pipelines, pipelines);
+    }),
+    setIntegrationSources: createAction((_, set, sources: IntegrationSource[]) => {
+        set(atoms.integrationSources, sources);
+    }),
+    setIntegrationConfig: createAction((_, set, config: IntegrationConfig) => {
+        set(atoms.integrationConfig, config);
+    }),
+    updateIntegrationConfig: createAction((get, set, field: keyof IntegrationConfig, value: string) => {
+        const currentConfig = get(atoms.integrationConfig);
+        set(atoms.integrationConfig, { ...currentConfig, [field]: value });
+    }),
+    setPreviewDocuments: createAction((_, set, documents: PreviewDocument[]) => {
+        set(atoms.previewDocuments, documents);
+    }),
+    setShowPreview: createAction((_, set, show: boolean) => {
+        set(atoms.showPreview, show);
+    }),
     updateDocument: createAction((_, set, id: number, document: Document) => {
         set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? document : doc)));
     }),
@@ -33,14 +63,33 @@ export const actions = {
         const documents: Document[] = res.data; // TODO: validate
         set(atoms.documents, documents);
     }),
+    fetchPipelines: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/pipelines');
+        const pipelines: Pipeline[] = res.data; // TODO: validate
+        set(atoms.pipelines, pipelines);
+    }),
+    fetchIntegrationSources: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/integration-sources');
+        const sources: IntegrationSource[] = res.data; // TODO: validate
+        set(atoms.integrationSources, sources);
+    }),
+    fetchPreviewDocuments: createAction(async (_, set) => {
+        const res = await axios.get('http://localhost:8000/api/preview-documents');
+        const previewDocuments: PreviewDocument[] = res.data; // TODO: validate
+        set(atoms.previewDocuments, previewDocuments);
+    }),
 }
 
 export function initializeStore() {
     const store = createStore();
 
     // Provide any initial values
+    // TODO: this is where we'd load state from localstorage, if necessary
+    store.set(atoms.pipelines, []);
+    store.set(atoms.integrationSources, []);
+    store.set(atoms.previewDocuments, []);
     // store.set(atoms.documents, mockDocuments)
-    store.set(atoms.documents, [])
+    store.set(atoms.documents, []);
 
     return store;
 }

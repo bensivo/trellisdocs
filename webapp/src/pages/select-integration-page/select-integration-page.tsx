@@ -1,53 +1,22 @@
+import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { NavbarComponent } from "../../components/navbar/navbar";
+import { atoms, actions } from '../../store/store';
 import "./select-integration-page.less";
-
-type IntegrationSource = {
-  id: number;
-  name: string;
-  description: string;
-  icon?: string;
-};
 
 export function SelectIntegrationPage() {
   const navigate = useNavigate();
+  const [integrationSources] = useAtom(atoms.integrationSources);
+  const [, fetchIntegrationSources] = useAtom(actions.fetchIntegrationSources);
+
+  useEffect(() => {
+    fetchIntegrationSources();
+  }, [fetchIntegrationSources]);
   
   const handleIntegrationSelect = (integrationName: string) => {
     navigate(`/integrations/configure/${integrationName.toLowerCase()}`);
   };
-
-  const integrationSources: IntegrationSource[] = [
-    {
-      id: 1,
-      name: "Jira",
-      description: "Fetch from Atlassian Jira",
-    },
-    {
-      id: 2,
-      name: "GitHub",
-      description: "Import from GitHub repositories",
-    },
-    {
-      id: 3,
-      name: "Slack",
-      description: "Capture from Slack channels",
-    },
-    {
-      id: 4,
-      name: "Confluence",
-      description: "Import from Confluence pages",
-    },
-    {
-      id: 5,
-      name: "Linear",
-      description: "Sync from Linear issues",
-    },
-    {
-      id: 6,
-      name: "Notion",
-      description: "Import from Notion databases",
-    },
-  ];
 
   return (
     <div className="select-integration-page">
@@ -64,7 +33,7 @@ export function SelectIntegrationPage() {
               </p>
             </div>
             <div className="integration-sources-grid">
-              {integrationSources.map((source) => (
+              {integrationSources.filter(source => source.available).map((source) => (
                 <div 
                   key={source.id} 
                   className="integration-source-card"
