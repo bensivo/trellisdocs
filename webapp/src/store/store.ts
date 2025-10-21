@@ -36,23 +36,23 @@ export const actions = {
         set(atoms.activeDocumentId, id);
     }),
     // Integration-related actions
-    setPipelines: createAction((get, set, pipelines: Pipeline[]) => {
+    setPipelines: createAction((_, set, pipelines: Pipeline[]) => {
         set(atoms.pipelines, pipelines);
     }),
-    setIntegrationSources: createAction((get, set, sources: IntegrationSource[]) => {
+    setIntegrationSources: createAction((_, set, sources: IntegrationSource[]) => {
         set(atoms.integrationSources, sources);
     }),
-    setIntegrationConfig: createAction((get, set, config: IntegrationConfig) => {
+    setIntegrationConfig: createAction((_, set, config: IntegrationConfig) => {
         set(atoms.integrationConfig, config);
     }),
     updateIntegrationConfig: createAction((get, set, field: keyof IntegrationConfig, value: string) => {
         const currentConfig = get(atoms.integrationConfig);
         set(atoms.integrationConfig, { ...currentConfig, [field]: value });
     }),
-    setPreviewDocuments: createAction((get, set, documents: PreviewDocument[]) => {
+    setPreviewDocuments: createAction((_, set, documents: PreviewDocument[]) => {
         set(atoms.previewDocuments, documents);
     }),
-    setShowPreview: createAction((get, set, show: boolean) => {
+    setShowPreview: createAction((_, set, show: boolean) => {
         set(atoms.showPreview, show);
     }),
     updateDocument: createAction((_, set, id: number, document: Document) => {
