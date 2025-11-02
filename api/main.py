@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from routers.health_routes import router as health_router
 from routers.document_routes import router as document_router
 from routers.pipeline_routes import router as pipeline_router
+from routers.integration_routes import router as integration_router
 from di import initialize_dependencies
 import uvicorn
 
@@ -17,6 +18,7 @@ app = FastAPI(lifespan=lifespan)
 app.include_router(health_router, prefix="/api")
 app.include_router(document_router, prefix="/api")
 app.include_router(pipeline_router, prefix="/api")
+app.include_router(integration_router, prefix="/api")
 
 app.add_middleware(
     CORSMiddleware,
