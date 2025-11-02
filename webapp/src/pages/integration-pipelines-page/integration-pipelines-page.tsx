@@ -1,55 +1,18 @@
+import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { NavbarComponent } from "../../components/navbar/navbar";
 import { useNavigate } from "react-router-dom";
+import { atoms, actions } from '../../store/store';
 import "./integration-pipelines-page.less";
-
-type Pipeline = {
-  id: number;
-  title: string;
-  description: string;
-  color: string;
-};
 
 export function IntegrationPipelinesPage() {
   const navigate = useNavigate();
-  
-  const pipelines: Pipeline[] = [
-    {
-      id: 1,
-      title: "Jira Integration",
-      description: "Sync issues and stories from Atlassian Jira",
-      color: "#0052CC",
-    },
-    {
-      id: 2,
-      title: "GitHub Integration",
-      description: "Import repositories and pull requests",
-      color: "#24292e",
-    },
-    {
-      id: 3,
-      title: "Slack Integration",
-      description: "Capture conversations and channel data",
-      color: "#4A154B",
-    },
-    {
-      id: 4,
-      title: "Confluence Integration",
-      description: "Import documentation and wiki pages",
-      color: "#172B4D",
-    },
-    {
-      id: 5,
-      title: "Linear Integration",
-      description: "Sync issues and project data",
-      color: "#5E6AD2",
-    },
-    {
-      id: 6,
-      title: "Notion Integration",
-      description: "Import pages and database records",
-      color: "#000000",
-    },
-  ];
+  const [pipelines] = useAtom(atoms.pipelines);
+  const [, fetchPipelines] = useAtom(actions.fetchPipelines);
+
+  useEffect(() => {
+    fetchPipelines();
+  }, [fetchPipelines]);
 
   return (
     <div className="integration-pipelines-page">
