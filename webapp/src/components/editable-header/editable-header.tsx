@@ -28,9 +28,9 @@ export function EditableHeader(props: EditableHeaderProps) {
         <div className="editable-header">
             {
                 !isEditingTitle ? (
-                    <h3>
+                    <h3 onClick={() => setIsEditingTitle(true)}>
                         {props.value}
-                        <i className="ri-edit-line" onClick={() => setIsEditingTitle(true)} />
+                        {/* <i className="ri-edit-line" onClick={() => setIsEditingTitle(true)} /> */}
                     </h3>
                 ) : (
                     <form onSubmit={(e) => { // Using a form allows submission with just the 'Enter' button
@@ -44,11 +44,15 @@ export function EditableHeader(props: EditableHeaderProps) {
                             value={value}
                             autoFocus={true}
                             onChange={(e) => setValue(e.target.value)}
+                            onBlur={(e) => {
+                                setIsEditingTitle(false);
+                                props.onChange(value);
+                            }}
                         />
-                        <i className="ri-check-line document-input-check" onClick={() => {
-                            setIsEditingTitle(false)
+                        {/* <i className="ri-check-line document-input-check" onClick={() => {
+                            setIsEditingTitle(false);
                             props.onChange(value);
-                        }} />
+                        }} /> */}
                     </form>
                 )
             }

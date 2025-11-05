@@ -35,26 +35,6 @@ export const actions = {
     setActiveDocumentId: createAction((_, set, id: number) => {
         set(atoms.activeDocumentId, id);
     }),
-    // Integration-related actions
-    setPipelines: createAction((_, set, pipelines: Pipeline[]) => {
-        set(atoms.pipelines, pipelines);
-    }),
-    setIntegrationSources: createAction((_, set, sources: IntegrationSource[]) => {
-        set(atoms.integrationSources, sources);
-    }),
-    setIntegrationConfig: createAction((_, set, config: IntegrationConfig) => {
-        set(atoms.integrationConfig, config);
-    }),
-    updateIntegrationConfig: createAction((get, set, field: keyof IntegrationConfig, value: string) => {
-        const currentConfig = get(atoms.integrationConfig);
-        set(atoms.integrationConfig, { ...currentConfig, [field]: value });
-    }),
-    setPreviewDocuments: createAction((_, set, documents: PreviewDocument[]) => {
-        set(atoms.previewDocuments, documents);
-    }),
-    setShowPreview: createAction((_, set, show: boolean) => {
-        set(atoms.showPreview, show);
-    }),
     updateDocument: createAction(async (_, set, id: number, document: Document) => {
         const res = await axios.patch(`http://localhost:8000/api/documents/${id}`, {
             name: document.name,
@@ -83,6 +63,27 @@ export const actions = {
         const res = await axios.get('http://localhost:8000/api/preview-documents');
         const previewDocuments: PreviewDocument[] = res.data; // TODO: validate
         set(atoms.previewDocuments, previewDocuments);
+    }),
+
+    // Integration-related actions
+    setPipelines: createAction((_, set, pipelines: Pipeline[]) => {
+        set(atoms.pipelines, pipelines);
+    }),
+    setIntegrationSources: createAction((_, set, sources: IntegrationSource[]) => {
+        set(atoms.integrationSources, sources);
+    }),
+    setIntegrationConfig: createAction((_, set, config: IntegrationConfig) => {
+        set(atoms.integrationConfig, config);
+    }),
+    updateIntegrationConfig: createAction((get, set, field: keyof IntegrationConfig, value: string) => {
+        const currentConfig = get(atoms.integrationConfig);
+        set(atoms.integrationConfig, { ...currentConfig, [field]: value });
+    }),
+    setPreviewDocuments: createAction((_, set, documents: PreviewDocument[]) => {
+        set(atoms.previewDocuments, documents);
+    }),
+    setShowPreview: createAction((_, set, show: boolean) => {
+        set(atoms.showPreview, show);
     }),
 }
 
