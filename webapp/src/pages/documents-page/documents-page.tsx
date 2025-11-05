@@ -1,10 +1,11 @@
 import { useAtom } from 'jotai';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavbarComponent } from '../../components/navbar/navbar';
+import type { Document } from '../../store/models';
 import { actions, atoms } from '../../store/store';
 
 import './documents-page.less';
-import { useEffect } from 'react';
 
 export function DocumentsPage() {
     const [documents] = useAtom(atoms.documents);
@@ -12,6 +13,21 @@ export function DocumentsPage() {
     const [activeDocument] = useAtom(atoms.activeDocument);
     const [, setActiveDocumentId] = useAtom(actions.setActiveDocumentId);
     const [, fetchDocuments] = useAtom(actions.fetchDocuments);
+
+    const [searchText, setSearchText ] = useState('');
+    const [visibleDocuments, setVisibleDocuments] = useState<Document[]>([])
+
+    useEffect(() => {
+        const visibleDocs = documents.filter(d => {
+            const dname = d.name.replace(/\s/, '').toLowerCase();
+            const search = searchText.replace(/\s/, '').toLowerCase();
+
+            return dname.includes(search);
+        })
+
+        setVisibleDocuments(visibleDocs);
+
+    }, [searchText, documents])
     
     useEffect(() => {
         fetchDocuments();
@@ -25,7 +41,7 @@ export function DocumentsPage() {
                 </div>
                 <div className="layout-right">
                     <div className="searchbar-container">
-                        <input className="searchbar" placeholder='Search'></input>
+                        <input className="searchbar" placeholder='Search' value={searchText} onChange={(e)=>setSearchText(e.target.value)}></input>
                     </div>
                     <div className="content-container">
                         <div className="content-left">
@@ -56,7 +72,7 @@ export function DocumentsPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {documents.map((document, _) => (
+                                        {visibleDocuments.map((document, _) => (
                                             <tr className={activeDocumentId > 0 && document.id === activeDocumentId ? 'active' : undefined}
                                                 onClick={() => { setActiveDocumentId(document.id) }}
                                             >
