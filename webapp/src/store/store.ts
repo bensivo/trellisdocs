@@ -55,8 +55,14 @@ export const actions = {
     setShowPreview: createAction((_, set, show: boolean) => {
         set(atoms.showPreview, show);
     }),
-    updateDocument: createAction((_, set, id: number, document: Document) => {
-        set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? document : doc)));
+    updateDocument: createAction(async (_, set, id: number, document: Document) => {
+        const res = await axios.patch(`http://localhost:8000/api/documents/${id}`, {
+            name: document.name,
+            property_fields: document.property_fields,
+            content_fields: document.content_fields
+        })
+        const newDoc = res.data;
+        set(atoms.documents, (docs) => docs.map((doc) => (doc.id === id ? newDoc : doc)));
     }),
     fetchDocuments: createAction(async (_, set) => {
         const res = await axios.get('http://localhost:8000/api/documents');

@@ -11,9 +11,9 @@ import { EditableHeader } from '../../components/editable-header/editable-header
 export function DocumentPage() {
     const { 'document-id': documentId } = useParams();
     const [documents] = useAtom(atoms.documents);
+    const [, fetchDocuments] = useAtom(actions.fetchDocuments);
+    let [,updateDocument] = useAtom(actions.updateDocument);
     const navigate = useNavigate();
-
-    const [_, updateDocument] = useAtom(actions.updateDocument);
 
     // Find the document by ID from the URL
     const document = documents.find(d => d.id === Number(documentId));
@@ -22,7 +22,14 @@ export function DocumentPage() {
     const [editedDocument, setEditedDocument] = useState<Document | null>(null);
     const [hasChanges, setHasChanges] = useState(false);
 
-    // Update local state when document changes
+    // The the user directly navigated to this page, documents may not be fetched yet
+    useEffect(() => {
+        if (documents.length == 0) {
+            fetchDocuments();
+        }
+    }, [documents]);
+
+    // Update local state when document in store changes (like after save-changes is submitted)
     useEffect(() => {
         if (document) {
             setEditedDocument(JSON.parse(JSON.stringify(document))); // Deep copy
