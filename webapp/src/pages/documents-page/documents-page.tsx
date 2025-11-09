@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DynamicFilters } from '../../components/dynamic-filters/dynamic-filters';
+import type {FilterOptions, FilterState} from '../../components/dynamic-filters/dynamic-filters';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import type { Document } from '../../store/models';
 import { actions, atoms } from '../../store/store';
@@ -18,21 +19,70 @@ export function DocumentsPage() {
     const [searchText, setSearchText ] = useState('');
     const [visibleDocuments, setVisibleDocuments] = useState<Document[]>([])
 
+    const [filterOptions, setFilterOptions] = useState<FilterOptions[]>([]);
+    const [activeFilters, setActiveFilters] = useState<FilterState[]>([]);
+
     useEffect(() => {
-        const visibleDocs = documents.filter(d => {
+        let visibleDocs = documents.filter(d => {
             const dname = d.name.replace(/\s/, '').toLowerCase();
             const search = searchText.replace(/\s/, '').toLowerCase();
 
             return dname.includes(search);
         })
 
+        for(const af of activeFilters) {
+            if (af.value === ''){ // Special case, an empty value means no filtering
+                continue;
+            }
+
+            visibleDocs = visibleDocs.filter(doc => {
+                for(const pf of doc.property_fields) {
+                    // TODO: support other kinds of filters, numeric, date ranges, multiselect
+                    if (pf.name === af.name) {
+                        return pf.value === af.value;
+                    }
+                }
+            })
+        }
+
         setVisibleDocuments(visibleDocs);
 
-    }, [searchText, documents])
+    }, [searchText, documents, activeFilters])
     
     useEffect(() => {
         fetchDocuments();
     }, [])
+
+    useEffect(() => {
+        // Dynamically generate the list of filterOptions based on the 
+        // property keys and values among all docs
+        const attributes: Record<string, Record<string, boolean>> = {};
+        for(const d of documents) {
+            for(const pf of d.property_fields) {
+                const name = pf.name;
+                const value = pf.value;
+
+                if(!attributes[name]) {
+                    attributes[name] = {};
+                }
+                attributes[name][value] = true;
+            }
+        }
+
+        const filterOptions: FilterOptions[] = [];
+        for(const [key, value] of Object.entries(attributes)) {
+            const name = key;
+            const options = Object.keys(value);
+
+            filterOptions.push({
+                name: name,
+                options: options,
+            })
+        }
+
+        setFilterOptions(filterOptions);
+
+    }, [documents])
 
     return (
         <div className="search-page">
@@ -53,26 +103,9 @@ export function DocumentsPage() {
                                    }}
                                 ></i>
                             </div>
-                            <DynamicFilters filterOptions={[
-                                {
-                                    name: 'Gender',
-                                    options: ['male', 'female', 'other'],
-                                },
-                                {
-                                    name: 'Age',
-                                    'options': ['<18', '18-26', '26-65', '>65'],
-                                }
-                            ]}/>
-                            {/* <div className="filters-container">
-                                {[...Array(4)].map((_, i) => (
-                                    <select key={i} className="filter" value="Filter">
-                                        <option>Foo</option>
-                                        <option>Bar</option>
-                                        <option>Baz</option>
-                                    </select>
-                                ))}
-                                <button className="add-field-btn">Add <i className="ri-add-line" /></button>
-                            </div> */}
+                            <DynamicFilters filterOptions={filterOptions} onChange={(fs => {
+                                setActiveFilters(fs);
+                            })}/>
                             <div className="table-container">
                                 <table className="document-table">
                                     <thead>

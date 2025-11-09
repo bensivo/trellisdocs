@@ -1,14 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './dynamic-filters.less';
 
+// TODO: comments that explain all these fields, and how to use this component
 
 export interface FilterOptions {
     name: string;
     options: string[];
 }
 
+export interface FilterState {
+    name: string;
+    value: string;
+}
+
 export interface DynamicFiltersProps {
     filterOptions: FilterOptions[];
+    onChange: (fs: FilterState[]) => void;
 }
 
 
@@ -22,16 +29,39 @@ export function DynamicFilters(props: DynamicFiltersProps) {
 
     const [filters, setFilters] = useState<Filter[]>([]);
 
+    useEffect(() => {
+        props.onChange(filters);
+    }, [filters])
+
     return (
         <div className="dynamic-filters">
             {filters.map((filter, i) => (
                 <>
                 <label>{filter.name}:</label>
-                {/* TODO: different kinds of filter input based on the attribute type (date-range, number comparitors, etc.) */}
-                <select key={i} className="filter" value={filter.value}>
+                {/* TODO: different kinds of filter input based on the attribute type (date-range, numbers, multiselect, etc.) */}
+                <select key={i} className="filter" value={filter.value} onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === '- Remove Filter -') {
+                        setFilters(filters.filter(f => f.name !== filter.name));
+                        return;
+                    }
+                    const newFilters =filters.map(f => {
+                        if (f.name === filter.name) {
+                            return {
+                                ...filter,
+                                value: value,
+                            }
+                        } else {
+                            return f;
+                        }
+                    }) 
+                    setFilters(newFilters);
+                }}>
+                    <option value=''>- Unassigned -</option>
                     {filter.options.map(o => (
                         <option>{o}</option>
                     ))}
+                    <option>- Remove Filter -</option>
                 </select>
                 </>
             ))}
