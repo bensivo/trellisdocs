@@ -1,0 +1,26 @@
+@import '../../styles.less';
+
+.dynamic-filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    label {
+        color: @text-01;
+    }
+
+    .filter {
+        background-color: @bg-02;
+        border: none;
+        border-bottom: solid 1px @border;
+        color: @text-01;
+        padding: 12px;
+        margin-right: 8px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: lighten(@bg-02, 5%);
+        }
+    }
+}

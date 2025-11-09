@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { DynamicFilters } from '../../components/dynamic-filters/dynamic-filters';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import type { Document } from '../../store/models';
 import { actions, atoms } from '../../store/store';
@@ -52,7 +53,17 @@ export function DocumentsPage() {
                                    }}
                                 ></i>
                             </div>
-                            <div className="filters-container">
+                            <DynamicFilters filterOptions={[
+                                {
+                                    name: 'Gender',
+                                    options: ['male', 'female', 'other'],
+                                },
+                                {
+                                    name: 'Age',
+                                    'options': ['<18', '18-26', '26-65', '>65'],
+                                }
+                            ]}/>
+                            {/* <div className="filters-container">
                                 {[...Array(4)].map((_, i) => (
                                     <select key={i} className="filter" value="Filter">
                                         <option>Foo</option>
@@ -61,7 +72,7 @@ export function DocumentsPage() {
                                     </select>
                                 ))}
                                 <button className="add-field-btn">Add <i className="ri-add-line" /></button>
-                            </div>
+                            </div> */}
                             <div className="table-container">
                                 <table className="document-table">
                                     <thead>
