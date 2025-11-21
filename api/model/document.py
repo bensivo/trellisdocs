@@ -39,6 +39,7 @@ Field = Union[TextField, NumberField, BooleanField, MarkdownField, AttachmentFie
 class Document:
     id: int
     name: str
-    # TODO: add created_at
+    created_at: str
+    source: str
     property_fields: list[Field]
     content_fields: list[Field]

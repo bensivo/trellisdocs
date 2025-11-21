@@ -1,7 +1,7 @@
 from model import Document, Field, TextField, NumberField, BooleanField, MarkdownField, AttachmentField
 from schemas.document_schemas import CreateDocumentRequest, UpdateDocumentRequest
 from service.db_svc import DBService
-from typing import Dict, Any
+import datetime
 
 class DocumentsSvc():
     """
@@ -17,10 +17,14 @@ class DocumentsSvc():
         :param request: CreateDocumentRequest object containing document details
         :return: The newly created Document object
         """
+
+        # TODO: more robust parsing of datetime inputs, including timezone, nanoseconds, etc. 
+        created_at =  datetime.datetime.strptime(request.created_at, '%Y-%m-%dT%H:%M:%S') if request.created_at else datetime.datetime.now()
+
         # Insert document record
         doc_result = await self.db_svc.query(
-            "INSERT INTO documents (name) VALUES ($1) RETURNING id, name, created_at",
-            request.name
+            "INSERT INTO documents (name, source, created_at) VALUES ($1, $2, $3) RETURNING id, name, source, TO_CHAR(created_at, 'YYYY-MM-DD\"T\"HH24:MI:SS') as created_at",
+            request.name, request.source, created_at
         )
 
         doc_row = doc_result[0]
@@ -51,6 +55,8 @@ class DocumentsSvc():
         return Document(
             id=document_id,
             name=doc_row['name'],
+            source=doc_row['source'],
+            created_at=doc_row['created_at'],
             property_fields=property_fields,
             content_fields=content_fields
         )
@@ -79,7 +85,7 @@ class DocumentsSvc():
         :param id: The ID of the document to retrieve
         :return: The Document object if found, otherwise None
         """
-        doc_raw = await self.db_svc.query("SELECT id, name, created_at FROM documents WHERE id = $1", id)
+        doc_raw = await self.db_svc.query("SELECT id, name, source,  TO_CHAR(created_at, 'YYYY-MM-DD\"T\"HH24:MI:SS') as created_at FROM documents WHERE id = $1", id)
         if not doc_raw:
             return None
             
@@ -122,6 +128,8 @@ class DocumentsSvc():
         return Document(
             id=doc_raw[0]['id'],
             name=doc_raw[0]['name'],
+            source=doc_raw[0]['source'],
+            created_at=doc_raw[0]['created_at'],
             property_fields=property_fields,
             content_fields=content_fields
         )
@@ -145,6 +153,10 @@ class DocumentsSvc():
         # Update document name if provided
         if request.name is not None:
             await self.db_svc.query("UPDATE documents SET name = $1 WHERE id = $2", request.name, document_id)
+
+        # Update document source if provided
+        if request.source is not None:
+            await self.db_svc.query("UPDATE documents SET source = $1 WHERE id = $2", request.source, document_id)
 
         # Replace property fields if provided
         if request.property_fields is not None:

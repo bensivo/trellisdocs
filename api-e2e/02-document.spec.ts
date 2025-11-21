@@ -24,6 +24,8 @@ describe('Documents API', () => {
             url: `${baseUrl}/documents`,
             data: {
                 name: 'foobar',
+                source: 'unit-test',
+                // created_at: new Date().toISOString(),
                 property_fields: [
                     {
                         name: 'foo',
@@ -84,6 +86,8 @@ describe('Documents API', () => {
             url: `${baseUrl}/documents`,
             data: {
                 name: 'original-name',
+                source: 'unit-test',
+                // created_at: new Date().toISOString(),
                 property_fields: [
                     {
                         name: 'project',

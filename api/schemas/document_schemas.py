@@ -8,12 +8,15 @@ class CreateFieldRequest(BaseModel):
 
 class CreateDocumentRequest(BaseModel):
     name: str
+    source: str
+    created_at: Optional[str] = None
     property_fields: list[CreateFieldRequest]
     content_fields: list[CreateFieldRequest]
 
 
 class UpdateDocumentRequest(BaseModel):
     name: Optional[str] = None
+    source: Optional[str] = None
     property_fields: Optional[list[CreateFieldRequest]] = None
     content_fields: Optional[list[CreateFieldRequest]] = None
 
@@ -27,6 +30,8 @@ class FieldResponse(BaseModel):
 class DocumentResponse(BaseModel):
     id: int
     name: str
+    source: str
+    created_at: str
     property_fields: list[FieldResponse]
     content_fields: list[FieldResponse]
 

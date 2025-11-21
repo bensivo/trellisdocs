@@ -1,6 +1,8 @@
 export interface Document {
     id: number;
     name: string;
+    source: string;
+    created_at: string;
     property_fields: DocumentField[];
     content_fields: DocumentField[];
 }

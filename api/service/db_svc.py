@@ -60,7 +60,18 @@ migrations = [
         'down': """
             DROP TABLE IF EXISTS pipelines
         """
-    }
+    },
+    {
+        'name': '005_add_source_to_documents',
+        'up': """
+            ALTER TABLE documents
+            ADD COLUMN source TEXT NOT NULL DEFAULT 'unknown'
+        """,
+        'down': """
+            ALTER TABLE documents
+            DROP COLUMN IF EXISTS source
+        """
+    },
 ]
 
 class DBService:

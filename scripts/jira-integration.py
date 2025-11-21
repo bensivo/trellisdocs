@@ -84,6 +84,8 @@ if __name__ == '__main__':
             }, 
             data=json.dumps({
                 'name': f"{id} - {summary}",
+                'source': 'Jira',
+                'created_at': created,
                 'property_fields': [
                     {
                         'name': 'Type',

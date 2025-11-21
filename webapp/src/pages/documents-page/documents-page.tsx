@@ -111,7 +111,7 @@ export function DocumentsPage() {
                                     <thead>
                                         <tr>
                                             <th><span>Title</span></th>
-                                            <th><span>Type</span></th>
+                                            <th><span>Source</span></th>
                                             <th><span>Created At</span></th>
                                         </tr>
                                     </thead>
@@ -121,8 +121,8 @@ export function DocumentsPage() {
                                                 onClick={() => { setActiveDocumentId(document.id) }}
                                             >
                                                 <td><span>{document.name}</span></td>
-                                                <td><span>TODO</span></td>
-                                                <td><span>TODO</span></td>
+                                                <td><span>{document.source}</span></td>
+                                                <td><span>{new Date(document.created_at).toLocaleDateString()}</span></td>
                                             </tr>
                                         ))}
                                     </tbody>
