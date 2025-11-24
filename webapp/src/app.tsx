@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LoginWrapper } from "./components/login-wrapper/login-wrapper";
-import { HomePage } from './pages/homepage/homepage';
 import { LoginPage } from './pages/loginpage/loginpage';
 import { DocumentsPage } from "./pages/documents-page/documents-page";
 import { DocumentPage } from "./pages/document-page/document-page";
@@ -12,12 +11,15 @@ import './app.less';
 import { IntegrationPipelinesPage } from "./pages/integration-pipelines-page/integration-pipelines-page";
 import { SelectIntegrationPage } from "./pages/select-integration-page/select-integration-page";
 import { NewIntegrationPage } from "./pages/new-integration-page/new-integration-page";
+import { HomePage } from "./pages/home-page/home-page";
+import { SearchPage } from "./pages/search-page/search-page";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LoginWrapper><HomePage/></LoginWrapper>} />
+                <Route path="/search" element={<LoginWrapper><SearchPage/></LoginWrapper>} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/documents" element={<DocumentsPage/>} />
                 <Route path="/documents/:document-id" element={<DocumentPage/>} />

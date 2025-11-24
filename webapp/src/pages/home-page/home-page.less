@@ -1,0 +1,36 @@
+@import '../../styles.less';
+
+.home-page {
+    background-color: @bg-01;
+
+    * {
+        font-family: sans-serif;
+    }
+
+    .layout-right {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .searchbar-container {
+        width: 100%;
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80%;
+    }
+
+    .searchbar {
+        background-color: @bg-02;
+        border: none;
+        border-bottom: solid 1px @border;
+        color: @text-01;
+        padding: 12px;
+        margin: 30px auto 30px auto;
+        display: block;
+        width: 100%;
+        max-width: 70ch
+    }
+}

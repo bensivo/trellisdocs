@@ -85,7 +85,7 @@ export function DocumentsPage() {
     }, [documents])
 
     return (
-        <div className="search-page">
+        <div className="documents-page">
             <div className="layout-lr-container">
                 <div className="layout-left">
                     <NavbarComponent />
