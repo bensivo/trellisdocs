@@ -30,6 +30,9 @@ export function HomePage() {
                             autoFocus 
                             value={search} 
                             onChange={(e) => setSearch(e.target.value)}/>
+                        <button className="search-btn" type="submit">
+                            <i className="ri-search-line"></i>
+                        </button>
                     </form>
                 </div>
             </div>

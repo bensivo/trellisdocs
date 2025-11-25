@@ -18,6 +18,10 @@
 
     .searchbar-container {
         width: 100%;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .searchbar {
@@ -26,18 +30,34 @@
         border-bottom: solid 1px @border;
         color: @text-01;
         padding: 12px;
-        margin: 30px auto 30px auto;
         display: block;
         width: 100%;
-        max-width: 70ch
+        max-width: 70ch;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .search-btn {
+        background-color: @accent;
+        color: @text-01;
+        border: none;
+        padding: 10px 16px;
+        &:hover {
+            cursor: pointer;
+            background-color: lighten(@accent, 10%);
+        }
+    }
+
+    .filters-container {
+        margin-top: 32px;
+        margin-bottom: 16px;
     }
 
     .search-results-container {
-        margin: 0 auto 0 32px;
     }
 
     .search-result {
-        margin-left: 16px;
         margin-top: 32px;
     }
 

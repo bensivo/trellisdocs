@@ -23,9 +23,9 @@ export function NavbarComponent() {
 					onClick={() => navigate("/search")}
 				/>
 
-				<i className="ri-file-copy-2-line icon"
+				{/* <i className="ri-file-copy-2-line icon"
 					onClick={() => navigate("/documents")}
-				/>
+				/> */}
 				{/* <i
 					className="ri-folders-line icon"
 					onClick={() => navigate("/")}

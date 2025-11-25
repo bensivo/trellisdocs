@@ -20,6 +20,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
         max-width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .searchbar {
@@ -28,9 +31,23 @@
         border-bottom: solid 1px @border;
         color: @text-01;
         padding: 12px;
-        margin: 30px auto 30px auto;
         display: block;
         width: 100%;
-        max-width: 70ch
+        max-width: 70ch;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .search-btn {
+        background-color: @accent;
+        color: @text-01;
+        border: none;
+        padding: 10px 16px;
+        &:hover {
+            cursor: pointer;
+            background-color: lighten(@accent, 10%);
+        }
     }
 }

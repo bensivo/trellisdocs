@@ -3,11 +3,13 @@
 import { useEffect, useState } from 'react';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import './search-page.less';
+import { DynamicFilters } from '../../components/dynamic-filters/dynamic-filters';
+import { useNavigate } from 'react-router-dom';
 
 export function SearchPage() {
 // TODO: read from query params to prefill search box and execute search
-
     const [searchText, setSearchText] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -22,11 +24,23 @@ export function SearchPage() {
                     <NavbarComponent />
                 </div>
                 <div className="layout-right">
-                    <div className="searchbar-container">
+                    <form className="searchbar-container" onSubmit={(e) => {
+                        e.preventDefault();
+                        navigate(`/search?query=${encodeURIComponent(searchText)}`);
+                    }}>
                         <input className="searchbar" placeholder='Search' value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
+                        <button className="search-btn" type="submit">
+                            <i className="ri-search-line"></i>
+                        </button>
+                    </form>
+                    <div className="filters-container">
+                        <DynamicFilters filterOptions={[
+                            { name: "Source", options: ["Email", "Google Drive", "Dropbox"] },
+                            { name: "Author", options: ["Ben", "Austin", "Brandon"] },
+                        ]} onChange={() => {}}/>
                     </div>
                     <div className="search-results-container">
-                        {[1, 2, 3, 4, 5].map((_, idx) => (
+                        {[1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,].map((_, idx) => (
                             <div className="search-result">
                                 <div className="search-result-clickable">
                                     <div className="search-result-header">
